@@ -147,11 +147,11 @@
                                                         <td>{{ $data->email }}</td>
                                                         <td>
                                                             @if ($data->role == 0)
-                                                            <span class="badge bg-success">Administrator</span>
+                                                            <span class="label label-success">Administrator</span>
                                                             @elseif ($data->role == 1)
-                                                                <span class="badge bg-info">Pimpinan</span>
+                                                                <span class="label label-info">Pimpinan</span>
                                                             @elseif ($data->role == 2)
-                                                                <span class="badge bg-warning">Karyawan</span>
+                                                                <span class="label label-warning">Karyawan</span>
                                                             @endif
                                                         </td>
                                                         <td class="text-center">
@@ -188,5 +188,35 @@
         </div>
     </div>
 </div>
+
+
+<form action="{{ route('user') }}" method="post">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Add User</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" placeholder="Name" required> <br>
+                        <input type="email" name="email" class="form-control" placeholder="Email" required> <br>
+                        <input type="password" name="password" class="form-control" placeholder="Password" required> <br>
+                        <select class="form-control" name="role" required>
+                            <option value="0">Administrator</option>
+                            <option value="1">Pimpinan</option>
+                            <option value="2">Karyawan</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-inverse">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 
 @endsection
