@@ -154,8 +154,8 @@
                             <li class="user-profile header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="{{ asset('assets') }}\images\avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                        <span>John Doe</span>
+                                        <img src="{{ asset('assets') }}\images\user.png" class="img-radius" alt="User-Profile-Image">
+                                        <span>@guest @else{{ Auth::user()->name }} @endguest</span>
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
                                     <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
@@ -180,7 +180,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="auth-normal-sign-in.htm">
+                                            <a href="{{ route('logout') }}">
                                                 <i class="feather icon-log-out"></i> Logout
                                             </a>
                                         </li>
