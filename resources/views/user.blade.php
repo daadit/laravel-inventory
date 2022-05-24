@@ -99,7 +99,7 @@
                             <div class="page-header-title">
                                 <div class="d-inline">
                                     <h4>Data User</h4>
-                                    <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                                    <span>This page is for managing user data.</span>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +124,8 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <button class="btn btn-mat btn-inverse" data-toggle="modal" data-target="#myModal">Add Category</button>
+                                    <button class="btn btn-mat btn-inverse" data-toggle="modal" data-target="#myModal">Add User</button>
+                                    <button class="btn btn-mat btn-success" data-toggle="modal" data-target="#myModal">Report User</button>
                                 </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
@@ -132,8 +133,10 @@
                                             <thead>
                                                 <tr>
                                                     <th style="text-align: center;">No</th>
-                                                    <th>Category</th>
-                                                    <th>Slug</th>
+                                                    <th>Nama</th>
+                                                    <th>Email</th>
+                                                    <th>Role</th>
+                                                    <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
