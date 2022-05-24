@@ -15,6 +15,18 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-
 Auth::routes();
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/user', [HomeController::class, 'index'])->name('user');
+Route::get('/jenis', [HomeController::class, 'index'])->name('jenis');
+Route::get('/satuan', [HomeController::class, 'index'])->name('satuan');
+Route::get('/supplier', [HomeController::class, 'index'])->name('supplier');
+Route::get('/barang', [HomeController::class, 'index'])->name('barang');
+
+Route::get('/pembelian', [HomeController::class, 'index'])->name('pembelian');
+Route::get('/penjualan', [HomeController::class, 'index'])->name('penjualan');
+
+Route::get('/report-stok-barang', [HomeController::class, 'index'])->name('report-stok-barang');
+Route::get('/report-pembelian', [HomeController::class, 'index'])->name('report-pembelian');
+Route::get('/report-penjualan', [HomeController::class, 'index'])->name('report-penjualan');
