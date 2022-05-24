@@ -19,13 +19,14 @@
     <!-- feather Awesome -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}\icon\feather\css\feather.css">
     <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}\css\component.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}\css\style.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}\css\jquery.mCustomScrollbar.css">
     <!-- Data Table -->
-    
-<link rel="stylesheet" type="text/css" href="{{ asset('bower_components') }}/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/pages/data-table/css/buttons.dataTables.min.css">
-<link rel="stylesheet" type="text/css" href="{{ asset('bower_components') }}/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bower_components') }}/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/pages/data-table/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bower_components') }}/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
+
 </head>
 
 <body>
@@ -80,6 +81,7 @@
                         </a>
                         <a href="{{ route('home') }}">
                             <img class="img-fluid" src="{{ asset('assets') }}\images\auth\logo.png" alt="Theme-Logo">
+                            <span>imarpaung</span>
                         </a>
                         <a class="mobile-options">
                             <i class="feather icon-more-horizontal"></i>
