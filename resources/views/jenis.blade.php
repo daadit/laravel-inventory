@@ -142,8 +142,8 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <button class="btn btn-mat btn-inverse" data-toggle="modal" data-target="#myModal">Tambah User</button>
-                                    <a class="btn btn-mat btn-success" href="{{ route('reportuser') }}" target="__blank">Laporan User</a>
+                                    <button class="btn btn-mat btn-sm btn-inverse" data-toggle="modal" data-target="#myModal">Tambah User</button>
+                                    <a class="btn btn-mat btn-sm btn-success" href="{{ route('reportuser') }}" target="__blank">Laporan User</a>
                                 </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
@@ -152,30 +152,18 @@
                                                 <tr>
                                                     <th style="text-align: center;">No</th>
                                                     <th>Nama</th>
-                                                    <th>Email</th>
-                                                    <th>Role</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($user as $number => $data)
+                                                @foreach ($jenis as $number => $data)
                                                     <tr>
                                                         <td width="8%">{{ ++$number }}</td>
-                                                        <td>{{ $data->name }}</td>
-                                                        <td>{{ $data->email }}</td>
-                                                        <td>
-                                                            @if ($data->role == 0)
-                                                            <span class="label label-success">Administrator</span>
-                                                            @elseif ($data->role == 1)
-                                                                <span class="label label-primary">Pimpinan</span>
-                                                            @elseif ($data->role == 2)
-                                                                <span class="label label-warning">Karyawan</span>
-                                                            @endif
-                                                        </td>
+                                                        <td>{{ $data->nama }}</td>
                                                         <td class="text-center">
                                                             <button class="btn btn-inverse btn-mini" data-toggle="modal"
                                                                 data-target="#editModal{{ $data->id }}">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                                                                     fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                                                     <path
                                                                         d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
@@ -183,7 +171,7 @@
                                                             </button>
                                                             <button class="btn btn-inverse btn-mini" data-toggle="modal"
                                                                 data-target="#deleteModal{{ $data->id }}">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                                                                     fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                                                     <path
                                                                         d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
@@ -239,7 +227,7 @@
     </div>
 </form>
 
-@foreach ($user as $data)
+@foreach ($jenis as $data)
     <form action="{{ route('updateuser') }}" method="POST">
         @method('PUT')
         @csrf
@@ -252,24 +240,7 @@
                     </div>
                     <div class="modal-body">
                         <input type="hidden" value="{{ $data->id }}" name="id" required />
-                        <input type="text" class="form-control" value="{{ $data->name }}" autocomplete="off" name="name" placeholder="Name" required /> <br>
-                        <input type="email" class="form-control" value="{{ $data->email }}" autocomplete="off" name="email" placeholder="Email" required /> <br>
-                        <input type="password" class="form-control" value="{{ $data->password }}" readonly autocomplete="off" name="password" placeholder="Password" required /> <br>
-                        <select class="form-control" name="role" required>
-                            @if ($data->role == 0)
-                                <option selected value="0">Administrator</option>
-                                <option value="1">Pimpinan</option>
-                                <option value="2">Karyawan</option>
-                            @elseif ($data->role == 1)
-                                <option selected value="1">Pimpinan</option>
-                                <option value="0">Administrator</option>
-                                <option value="2">Karyawan</option>
-                            @elseif ($data->role == 2)
-                                <option selected value="2">Karyawan</option>
-                                <option value="0">Administrator</option>
-                                <option value="1">Pimpinan</option>
-                            @endif
-                        </select>
+                        <input type="text" class="form-control" value="{{ $data->nama }}" autocomplete="off" name="name" placeholder="Name" required /> <br>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
