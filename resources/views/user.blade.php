@@ -142,8 +142,8 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <button class="btn btn-mat btn-inverse" data-toggle="modal" data-target="#myModal">Add User</button>
-                                    <button class="btn btn-mat btn-success" data-toggle="modal" data-target="#myModal">Report User</button>
+                                    <button class="btn btn-mat btn-inverse" data-toggle="modal" data-target="#myModal">Tambah User</button>
+                                    <button class="btn btn-mat btn-success" data-toggle="modal" data-target="#myModal">Laporan User</button>
                                 </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
@@ -253,8 +253,8 @@
                     <div class="modal-body">
                         <input type="hidden" value="{{ $data->id }}" name="id" required />
                         <input type="text" class="form-control" value="{{ $data->name }}" autocomplete="off" name="name" placeholder="Name" required /> <br>
-                        <input type="text" class="form-control" value="{{ $data->email }}" autocomplete="off" name="name" placeholder="Name" required /> <br>
-                        <input type="text" class="form-control" value="{{ $data->password }}" readonly autocomplete="off" name="name" placeholder="Name" required /> <br>
+                        <input type="email" class="form-control" value="{{ $data->email }}" autocomplete="off" name="email" placeholder="Email" required /> <br>
+                        <input type="password" class="form-control" value="{{ $data->password }}" readonly autocomplete="off" name="password" placeholder="Password" required /> <br>
                         <select class="form-control" name="role" required>
                             @if ($data->role == 0)
                                 <option selected value="0">Administrator</option>
