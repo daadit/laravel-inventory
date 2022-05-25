@@ -60,7 +60,7 @@
         </table>
         <table class="head" style="margin-bottom: 20px;">
             <tr>
-                <td>Laporan Data User</td>
+                <td>Laporan Data Jenis</td>
             </tr>
         </table>
         <table border="1" class="body" width="625">
@@ -68,25 +68,13 @@
                 <tr style="height: 25px;">
                     <th>No.</th>
                     <th>Nama</th>
-                    <th>Email</th>
-                    <th>Role</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($user as $number => $data)
+                @foreach ($jenis as $number => $data)
                     <tr style="height: 20px; text-align: center;">
                         <td>{{ ++$number }}</td>
-                        <td>{{ $data->name }}</td>
-                        <td>{{ $data->email }}</td>
-                        <td>
-                            @if ($data->role == 0)
-                                Administrator
-                            @elseif ($data->role == 1)
-                                Pimpinan
-                            @elseif ($data->role == 2)
-                                Karyawan
-                            @endif
-                        </td>
+                        <td>{{ $data->nama }}</td>
                     </tr>
                 @endforeach
             </tbody>
