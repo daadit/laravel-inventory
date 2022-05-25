@@ -219,7 +219,7 @@
     </div>
 </form>
 
-@foreach ($jenis as $data)
+@foreach ($satuan as $data)
     <form action="{{ route('updatesatuan') }}" method="POST">
         @method('PUT')
         @csrf
