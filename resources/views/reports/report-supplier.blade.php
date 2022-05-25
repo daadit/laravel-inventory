@@ -68,6 +68,8 @@
                 <tr style="height: 25px;">
                     <th>No.</th>
                     <th>Nama</th>
+                    <th>No. Telp</th>
+                    <th>Alamat</th>
                 </tr>
             </thead>
             <tbody>
@@ -75,6 +77,8 @@
                     <tr style="height: 20px; text-align: center;">
                         <td>{{ ++$number }}</td>
                         <td>{{ $data->nama }}</td>
+                        <td>{{ $data->notelp }}</td>
+                        <td>{{ $data->alamat }}</td>
                     </tr>
                 @endforeach
             </tbody>
