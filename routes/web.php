@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JenisController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +27,7 @@ Route::put('/user/update', [UserController::class, 'update'])->name('updateuser'
 Route::delete('/user/delete', [UserController::class, 'delete'])->name('deleteuser');
 Route::get('/user/report', [UserController::class, 'report'])->name('reportuser');
 
-Route::get('/jenis', [HomeController::class, 'index'])->name('jenis');
+Route::get('/jenis', [JenisController::class, 'index'])->name('jenis');
 Route::get('/satuan', [HomeController::class, 'index'])->name('satuan');
 Route::get('/supplier', [HomeController::class, 'index'])->name('supplier');
 Route::get('/barang', [HomeController::class, 'index'])->name('barang');
