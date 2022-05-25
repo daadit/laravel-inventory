@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisController;
+use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,12 @@ Route::put('/jenis/update', [JenisController::class, 'update'])->name('updatejen
 Route::delete('/jenis/delete', [JenisController::class, 'delete'])->name('deletejenis');
 Route::get('/jenis/report', [JenisController::class, 'report'])->name('reportjenis');
 
-Route::get('/satuan', [HomeController::class, 'index'])->name('satuan');
+Route::get('/satuan', [SatuanController::class, 'index'])->name('satuan');
+Route::post('/satuan/save', [SatuanController::class, 'save'])->name('savesatuan');
+Route::put('/satuan/update', [SatuanController::class, 'update'])->name('updatesatuan');
+Route::delete('/satuan/delete', [SatuanController::class, 'delete'])->name('deletesatuan');
+Route::get('/satuan/report', [SatuanController::class, 'report'])->name('reportsatuan');
+
 Route::get('/supplier', [HomeController::class, 'index'])->name('supplier');
 Route::get('/barang', [HomeController::class, 'index'])->name('barang');
 
