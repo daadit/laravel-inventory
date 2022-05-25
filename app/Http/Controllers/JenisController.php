@@ -36,7 +36,7 @@ class JenisController extends Controller
         } else {
             // Jika validasi berhasil
             $data = [
-                'name' => Request()->name,
+                'nama' => Request()->name,
             ];
             $this->jenis->saveData($data);
             return redirect('/jenis')->with('success-message', 'Data saved successfully');
@@ -56,7 +56,7 @@ class JenisController extends Controller
         } else {
             $id = Request()->id;
             $data = [
-                'name' => Request()->name
+                'nama' => Request()->name
             ];
             $this->jenis->updateData($id, $data);
             return redirect('/jenis')->with('success-message', 'Data updated successfully');
