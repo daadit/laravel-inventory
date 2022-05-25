@@ -212,6 +212,8 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" name="name" class="form-control" placeholder="Name" required> <br>
+                        <input type="text" name="notelp" class="form-control" placeholder="No. Telp" required> <br>
+                        <input type="text" name="alamat" class="form-control" placeholder="Alamat" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -237,6 +239,8 @@
                     <div class="modal-body">
                         <input type="hidden" value="{{ $data->id }}" name="id" required />
                         <input type="text" class="form-control" value="{{ $data->nama }}" autocomplete="off" name="name" placeholder="Name" required /> <br>
+                        <input type="text" class="form-control" value="{{ $data->notelp }}" autocomplete="off" name="notelp" placeholder="No. Telp" required /> <br>
+                        <input type="text" class="form-control" value="{{ $data->alamat }}" autocomplete="off" name="alamat" placeholder="Alamat" required /> <br>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
