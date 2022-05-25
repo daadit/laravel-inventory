@@ -167,7 +167,7 @@
                                                             @if ($data->role == 0)
                                                             <span class="label label-success">Administrator</span>
                                                             @elseif ($data->role == 1)
-                                                                <span class="label label-info">Pimpinan</span>
+                                                                <span class="label label-primary">Pimpinan</span>
                                                             @elseif ($data->role == 2)
                                                                 <span class="label label-warning">Karyawan</span>
                                                             @endif

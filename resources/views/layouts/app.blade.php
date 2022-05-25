@@ -82,7 +82,7 @@
                             <i class="feather icon-menu"></i>
                         </a>
                         <a href="{{ route('home') }}">
-                            <img class="img-fluid" src="{{ asset('assets') }}\images\auth\logo.png" alt="Theme-Logo">
+                            <img class="img-fluid" width="20%" height="20%" src="{{ asset('assets') }}\images\auth\logo-white.png" alt="Theme-Logo">
                             <span>imarpaung</span>
                         </a>
                         <a class="mobile-options">
