@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return DB::table('users')->get();
     }
+
+    public function saveData($data)
+    {
+        DB::table('users')->insert($data);
+    }
 }

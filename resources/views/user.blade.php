@@ -119,11 +119,29 @@
                     </div>
                 </div>
                 <div class="page-body">
-                    <div class="row">
+                    <div class="row"> 
                         <div class="col-lg-12">
-
                             <div class="card">
                                 <div class="card-header">
+                                    <div class="row justify-content-end">
+                                        <div class="col-lg-6">
+                                            @if (session('success-message'))
+                                                <div class="alert alert-success border-success">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <i class="icofont icofont-close-line-circled"></i>
+                                                    </button>
+                                                    <strong>Success!</strong> {{ session('success-message') }}
+                                                </div>
+                                            @elseif (session('failed-message'))
+                                                <div class="alert alert-warning border-warning">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <i class="icofont icofont-close-line-circled"></i>
+                                                    </button>
+                                                    <strong>Error!</strong> {{ session('failed-message') }} : {{ $errors->content->first() }}
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
                                     <button class="btn btn-mat btn-inverse" data-toggle="modal" data-target="#myModal">Add User</button>
                                     <button class="btn btn-mat btn-success" data-toggle="modal" data-target="#myModal">Report User</button>
                                 </div>
@@ -190,7 +208,7 @@
 </div>
 
 
-<form action="{{ route('user') }}" method="post">
+<form action="{{ route('saveuser') }}" method="post">
     @method('POST')
     @csrf
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

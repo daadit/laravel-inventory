@@ -19,7 +19,10 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
 Route::get('/user', [UserController::class, 'index'])->name('user');
+Route::post('/user/save', [UserController::class, 'save'])->name('saveuser');
+
 Route::get('/jenis', [HomeController::class, 'index'])->name('jenis');
 Route::get('/satuan', [HomeController::class, 'index'])->name('satuan');
 Route::get('/supplier', [HomeController::class, 'index'])->name('supplier');
