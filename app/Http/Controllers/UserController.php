@@ -29,6 +29,7 @@ class UserController extends Controller
         $validated = Validator::make($request->all(), [
             'name' => 'required|max:255',
             'email' => 'required|max:255',
+            'password' => 'required|max:255',
             'role' => 'required'
         ]);
 
@@ -46,5 +47,37 @@ class UserController extends Controller
             $this->user->saveData($data);
             return redirect('/user')->with('success-message', 'Data saved successfully');
         }
+    }
+
+    public function update(Request $request)
+    {
+        // Membuat validasi
+        $validated = Validator::make($request->all(), [
+            'id' => 'required',
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'password' => 'required|max:255',
+            'role' => 'required',
+        ]);
+
+        if ($validated->fails()) {
+            return redirect('/user')->with('failed-message', 'Data failed to update')->withErrors($validated, 'content');
+        } else {
+            $id = Request()->id;
+            $data = [
+                'name' => Request()->name,
+                'email' => Request()->email,
+                'role' => Request()->role
+            ];
+            $this->user->updateData($id, $data);
+            return redirect('/user')->with('success-message', 'Data updated successfully');
+        }
+    }
+
+    public function delete()
+    {
+        $id = Request()->id;
+        $this->user->deleteData($id);
+        return redirect('/user')->with('success-message', 'Data deleted successfully');
     }
 }

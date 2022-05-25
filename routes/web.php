@@ -22,6 +22,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::post('/user/save', [UserController::class, 'save'])->name('saveuser');
+Route::put('/user/update', [UserController::class, 'update'])->name('updateuser');
+Route::delete('/user/delete', [UserController::class, 'delete'])->name('deleteuser');
 
 Route::get('/jenis', [HomeController::class, 'index'])->name('jenis');
 Route::get('/satuan', [HomeController::class, 'index'])->name('satuan');

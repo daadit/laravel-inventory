@@ -240,7 +240,7 @@
 </form>
 
 @foreach ($user as $data)
-    <form action="{{ route('user') }}" method="POST">
+    <form action="{{ route('updateuser') }}" method="POST">
         @method('PUT')
         @csrf
         <div class="modal made" tabindex="-1" id="editModal{{ $data->id }}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -255,6 +255,21 @@
                         <input type="text" class="form-control" value="{{ $data->name }}" autocomplete="off" name="name" placeholder="Name" required /> <br>
                         <input type="text" class="form-control" value="{{ $data->email }}" autocomplete="off" name="name" placeholder="Name" required /> <br>
                         <input type="text" class="form-control" value="{{ $data->password }}" readonly autocomplete="off" name="name" placeholder="Name" required /> <br>
+                        <select class="form-control" name="role" required>
+                            @if ($data->role == 0)
+                                <option selected value="0">Administrator</option>
+                                <option value="1">Pimpinan</option>
+                                <option value="2">Karyawan</option>
+                            @elseif ($data->role == 1)
+                                <option selected value="1">Pimpinan</option>
+                                <option value="0">Administrator</option>
+                                <option value="2">Karyawan</option>
+                            @elseif ($data->role == 2)
+                                <option selected value="2">Karyawan</option>
+                                <option value="0">Administrator</option>
+                                <option value="1">Pimpinan</option>
+                            @endif
+                        </select>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
@@ -264,7 +279,7 @@
             </div>
         </div>
     </form>
-    <form action="{{ route('user') }}" method="POST">
+    <form action="{{ route('deleteuser') }}" method="POST">
         @method('DELETE')
         @csrf
         <div class="modal" tabindex="-1" id="deleteModal{{ $data->id }}">
