@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\SatuanController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,12 @@ Route::put('/satuan/update', [SatuanController::class, 'update'])->name('updates
 Route::delete('/satuan/delete', [SatuanController::class, 'delete'])->name('deletesatuan');
 Route::get('/satuan/report', [SatuanController::class, 'report'])->name('reportsatuan');
 
-Route::get('/supplier', [HomeController::class, 'index'])->name('supplier');
+Route::get('/supplier', [SupplierController::class, 'index'])->name('supplier');
+Route::post('/supplier/save', [SupplierController::class, 'save'])->name('savesupplier');
+Route::put('/supplier/update', [SupplierController::class, 'update'])->name('updatesupplier');
+Route::delete('/supplier/delete', [SupplierController::class, 'delete'])->name('deletesupplier');
+Route::get('/supplier/report', [SupplierController::class, 'report'])->name('reportsupplier');
+
 Route::get('/barang', [HomeController::class, 'index'])->name('barang');
 
 Route::get('/pembelian', [HomeController::class, 'index'])->name('pembelian');
