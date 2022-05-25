@@ -26,17 +26,17 @@
                 </a>
             </li>
             <li class="active">
-                <a href="{{ route('satuan') }}" target="_blank">
+                <a href="{{ route('satuan') }}">
                     <span class="pcoded-mtext">Satuan Barang</span>
                 </a>
             </li>
             <li class=" ">
-                <a href="{{ route('supplier') }}" target="_blank">
+                <a href="{{ route('supplier') }}">
                     <span class="pcoded-mtext">Supplier</span>
                 </a>
             </li>
             <li class=" ">
-                <a href="{{ route('barang') }}" target="_blank">
+                <a href="{{ route('barang') }}">
                     <span class="pcoded-mtext">Barang</span>
                 </a>
             </li>
@@ -54,7 +54,7 @@
                 </a>
             </li>
             <li class=" ">
-                <a href="{{ route('penjualan') }}" target="_blank">
+                <a href="{{ route('penjualan') }}">
                     <span class="pcoded-mtext">Penjualan</span>
                 </a>
             </li>
@@ -72,12 +72,12 @@
                 </a>
             </li>
             <li class=" ">
-                <a href="{{ route('report-pembelian') }}" target="_blank">
+                <a href="{{ route('report-pembelian') }}">
                     <span class="pcoded-mtext">Pembelian</span>
                 </a>
             </li>
             <li class=" ">
-                <a href="{{ route('report-penjualan') }}" target="_blank">
+                <a href="{{ route('report-penjualan') }}">
                     <span class="pcoded-mtext">Penjualan</span>
                 </a>
             </li>
@@ -195,15 +195,14 @@
     </div>
 </div>
 
-
-<form action="{{ route('savejenis') }}" method="post">
+<form action="{{ route('savesatuan') }}" method="post">
     @method('POST')
     @csrf
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel">Add jenis</h5>
+                    <h5 class="modal-title" id="myModalLabel">Add satuan</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
@@ -221,14 +220,14 @@
 </form>
 
 @foreach ($jenis as $data)
-    <form action="{{ route('updatejenis') }}" method="POST">
+    <form action="{{ route('updatesatuan') }}" method="POST">
         @method('PUT')
         @csrf
         <div class="modal made" tabindex="-1" id="editModal{{ $data->id }}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Update jenis</h5>
+                        <h5 class="modal-title">Update satuan</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
@@ -243,14 +242,14 @@
             </div>
         </div>
     </form>
-    <form action="{{ route('deletejenis') }}" method="POST">
+    <form action="{{ route('deletesatuan') }}" method="POST">
         @method('DELETE')
         @csrf
         <div class="modal" tabindex="-1" id="deleteModal{{ $data->id }}">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Delete jenis</h5>
+                        <h5 class="modal-title">Delete satuan</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">

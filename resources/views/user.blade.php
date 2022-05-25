@@ -26,17 +26,17 @@
                 </a>
             </li>
             <li class=" ">
-                <a href="{{ route('satuan') }}" target="_blank">
+                <a href="{{ route('satuan') }}">
                     <span class="pcoded-mtext">Satuan Barang</span>
                 </a>
             </li>
             <li class=" ">
-                <a href="{{ route('supplier') }}" target="_blank">
+                <a href="{{ route('supplier') }}">
                     <span class="pcoded-mtext">Supplier</span>
                 </a>
             </li>
             <li class=" ">
-                <a href="{{ route('barang') }}" target="_blank">
+                <a href="{{ route('barang') }}">
                     <span class="pcoded-mtext">Barang</span>
                 </a>
             </li>
@@ -54,7 +54,7 @@
                 </a>
             </li>
             <li class=" ">
-                <a href="{{ route('penjualan') }}" target="_blank">
+                <a href="{{ route('penjualan') }}">
                     <span class="pcoded-mtext">Penjualan</span>
                 </a>
             </li>
@@ -72,12 +72,12 @@
                 </a>
             </li>
             <li class=" ">
-                <a href="{{ route('report-pembelian') }}" target="_blank">
+                <a href="{{ route('report-pembelian') }}">
                     <span class="pcoded-mtext">Pembelian</span>
                 </a>
             </li>
             <li class=" ">
-                <a href="{{ route('report-penjualan') }}" target="_blank">
+                <a href="{{ route('report-penjualan') }}">
                     <span class="pcoded-mtext">Penjualan</span>
                 </a>
             </li>
