@@ -212,7 +212,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" name="name" class="form-control" placeholder="Name" required> <br>
-                        <input type="text" name="notelp" class="form-control" placeholder="No. Telp" required> <br>
+                        <input type="text" name="notelp" onkeypress="return onlyNumber(event)" class="form-control" placeholder="No. Telp" required> <br>
                         <input type="text" name="alamat" class="form-control" placeholder="Alamat" required>
                     </div>
                 </div>
@@ -239,7 +239,7 @@
                     <div class="modal-body">
                         <input type="hidden" value="{{ $data->id }}" name="id" required />
                         <input type="text" class="form-control" value="{{ $data->nama }}" autocomplete="off" name="name" placeholder="Name" required /> <br>
-                        <input type="text" class="form-control" value="{{ $data->notelp }}" autocomplete="off" name="notelp" placeholder="No. Telp" required /> <br>
+                        <input type="text" class="form-control" onkeypress="return onlyNumber(event)" value="{{ $data->notelp }}" autocomplete="off" name="notelp" placeholder="No. Telp" required /> <br>
                         <input type="text" class="form-control" value="{{ $data->alamat }}" autocomplete="off" name="alamat" placeholder="Alamat" required /> <br>
                     </div>
                     <div class="modal-footer">
@@ -273,5 +273,14 @@
         </div>
     </form>
 @endforeach
+
+<script>
+    function onlyNumber(event) {
+        var angka = (event.which) ? event.which : event.keyCode
+        if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+            return false;
+        return true;
+    }
+</script>
 
 @endsection
