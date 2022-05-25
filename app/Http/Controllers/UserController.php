@@ -80,4 +80,12 @@ class UserController extends Controller
         $this->user->deleteData($id);
         return redirect('/user')->with('success-message', 'Data deleted successfully');
     }
+
+    public function report()
+    {
+        $data = [
+            'user' => $this->user->list()
+        ];
+        return view('reports/report-user', $data);
+    }
 }

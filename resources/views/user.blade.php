@@ -143,7 +143,7 @@
                                         </div>
                                     </div>
                                     <button class="btn btn-mat btn-inverse" data-toggle="modal" data-target="#myModal">Tambah User</button>
-                                    <button class="btn btn-mat btn-success" data-toggle="modal" data-target="#myModal">Laporan User</button>
+                                    <a class="btn btn-mat btn-success" href="{{ route('reportuser') }}" target="__blank">Laporan User</a>
                                 </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
