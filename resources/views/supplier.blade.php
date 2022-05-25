@@ -142,8 +142,8 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <button class="btn btn-mat btn-sm btn-inverse" data-toggle="modal" data-target="#myModal">Tambah Satuan</button>
-                                    <a class="btn btn-mat btn-sm btn-success" href="{{ route('reportsatuan') }}" target="__blank">Laporan Satuan</a>
+                                    <button class="btn btn-mat btn-sm btn-inverse" data-toggle="modal" data-target="#myModal">Tambah Supplier</button>
+                                    <a class="btn btn-mat btn-sm btn-success" href="{{ route('reportsupplier') }}" target="__blank">Laporan Supplier</a>
                                 </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
@@ -152,14 +152,18 @@
                                                 <tr>
                                                     <th style="text-align: center;">No</th>
                                                     <th>Nama</th>
+                                                    <th>No. Telp</th>
+                                                    <th>Alamat</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($satuan as $number => $data)
+                                                @foreach ($supplier as $number => $data)
                                                     <tr>
                                                         <td width="8%">{{ ++$number }}</td>
                                                         <td>{{ $data->nama }}</td>
+                                                        <td>{{ $data->notelp }}</td>
+                                                        <td>{{ $data->alamat }}</td>
                                                         <td class="text-center">
                                                             <button class="btn btn-inverse btn-mini" data-toggle="modal"
                                                                 data-target="#editModal{{ $data->id }}">
@@ -195,14 +199,14 @@
     </div>
 </div>
 
-<form action="{{ route('savesatuan') }}" method="post">
+<form action="{{ route('savesupplier') }}" method="post">
     @method('POST')
     @csrf
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel">Add satuan</h5>
+                    <h5 class="modal-title" id="myModalLabel">Add supplier</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
@@ -219,15 +223,15 @@
     </div>
 </form>
 
-@foreach ($satuan as $data)
-    <form action="{{ route('updatesatuan') }}" method="POST">
+@foreach ($supplier as $data)
+    <form action="{{ route('updatesupplier') }}" method="POST">
         @method('PUT')
         @csrf
         <div class="modal made" tabindex="-1" id="editModal{{ $data->id }}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Update satuan</h5>
+                        <h5 class="modal-title">Update supplier</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
@@ -242,14 +246,14 @@
             </div>
         </div>
     </form>
-    <form action="{{ route('deletesatuan') }}" method="POST">
+    <form action="{{ route('deletesupplier') }}" method="POST">
         @method('DELETE')
         @csrf
         <div class="modal" tabindex="-1" id="deleteModal{{ $data->id }}">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Delete satuan</h5>
+                        <h5 class="modal-title">Delete supplier</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
