@@ -142,8 +142,8 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <button class="btn btn-mat btn-sm btn-inverse" data-toggle="modal" data-target="#myModal">Tambah User</button>
-                                    <a class="btn btn-mat btn-sm btn-success" href="{{ route('reportuser') }}" target="__blank">Laporan User</a>
+                                    <button class="btn btn-mat btn-sm btn-inverse" data-toggle="modal" data-target="#myModal">Tambah Jenis</button>
+                                    <a class="btn btn-mat btn-sm btn-success" href="{{ route('reportjenis') }}" target="__blank">Laporan Jenis</a>
                                 </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
@@ -196,26 +196,19 @@
 </div>
 
 
-<form action="{{ route('saveuser') }}" method="post">
+<form action="{{ route('savejenis') }}" method="post">
     @method('POST')
     @csrf
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Add user</h4>
+                    <h5 class="modal-title" id="myModalLabel">Add jenis</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" name="name" class="form-control" placeholder="Name" required> <br>
-                        <input type="email" name="email" class="form-control" placeholder="Email" required> <br>
-                        <input type="password" name="password" class="form-control" placeholder="Password" required> <br>
-                        <select class="form-control" name="role" required>
-                            <option value="0">Administrator</option>
-                            <option value="1">Pimpinan</option>
-                            <option value="2">Karyawan</option>
-                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -228,14 +221,14 @@
 </form>
 
 @foreach ($jenis as $data)
-    <form action="{{ route('updateuser') }}" method="POST">
+    <form action="{{ route('updatejenis') }}" method="POST">
         @method('PUT')
         @csrf
         <div class="modal made" tabindex="-1" id="editModal{{ $data->id }}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Update user</h5>
+                        <h5 class="modal-title">Update jenis</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
@@ -250,14 +243,14 @@
             </div>
         </div>
     </form>
-    <form action="{{ route('deleteuser') }}" method="POST">
+    <form action="{{ route('deletejenis') }}" method="POST">
         @method('DELETE')
         @csrf
         <div class="modal" tabindex="-1" id="deleteModal{{ $data->id }}">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Delete user</h5>
+                        <h5 class="modal-title">Delete jenis</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">

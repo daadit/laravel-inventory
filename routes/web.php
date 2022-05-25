@@ -28,6 +28,11 @@ Route::delete('/user/delete', [UserController::class, 'delete'])->name('deleteus
 Route::get('/user/report', [UserController::class, 'report'])->name('reportuser');
 
 Route::get('/jenis', [JenisController::class, 'index'])->name('jenis');
+Route::post('/jenis/save', [JenisController::class, 'save'])->name('savejenis');
+Route::put('/jenis/update', [JenisController::class, 'update'])->name('updatejenis');
+Route::delete('/jenis/delete', [JenisController::class, 'delete'])->name('deletejenis');
+Route::get('/jenis/report', [JenisController::class, 'report'])->name('reportjenis');
+
 Route::get('/satuan', [HomeController::class, 'index'])->name('satuan');
 Route::get('/supplier', [HomeController::class, 'index'])->name('supplier');
 Route::get('/barang', [HomeController::class, 'index'])->name('barang');

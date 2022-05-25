@@ -22,4 +22,59 @@ class JenisController extends Controller
         ];
         return view('jenis', $data);
     }
+
+    public function save(Request $request)
+    {
+        // Membuat validasi
+        $validated = Validator::make($request->all(), [
+            'name' => 'required|max:255'
+        ]);
+
+        if ($validated->fails()) {
+            // Jika validasi gagal
+            return redirect('/jenis')->with('failed-message', 'Data failed to save')->withErrors($validated, 'content');
+        } else {
+            // Jika validasi berhasil
+            $data = [
+                'name' => Request()->name,
+            ];
+            $this->jenis->saveData($data);
+            return redirect('/jenis')->with('success-message', 'Data saved successfully');
+        }
+    }
+
+    public function update(Request $request)
+    {
+        // Membuat validasi
+        $validated = Validator::make($request->all(), [
+            'id' => 'required',
+            'name' => 'required|max:255'
+        ]);
+
+        if ($validated->fails()) {
+            return redirect('/jenis')->with('failed-message', 'Data failed to update')->withErrors($validated, 'content');
+        } else {
+            $id = Request()->id;
+            $data = [
+                'name' => Request()->name
+            ];
+            $this->jenis->updateData($id, $data);
+            return redirect('/jenis')->with('success-message', 'Data updated successfully');
+        }
+    }
+
+    public function delete()
+    {
+        $id = Request()->id;
+        $this->jenis->deleteData($id);
+        return redirect('/jenis')->with('success-message', 'Data deleted successfully');
+    }
+
+    public function report()
+    {
+        $data = [
+            'jenis' => $this->jenis->list()
+        ];
+        return view('reports/report-jenis', $data);
+    }
 }
