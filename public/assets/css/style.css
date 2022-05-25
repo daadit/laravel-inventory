@@ -20925,3 +20925,9 @@ span.value {
  color:#919aa3;
  text-decoration:line-through
 }
+
+.dataTables_wrapper {
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    position: relative;
+}
