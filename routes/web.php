@@ -49,6 +49,10 @@ Route::delete('/supplier/delete', [SupplierController::class, 'delete'])->name('
 Route::get('/supplier/report', [SupplierController::class, 'report'])->name('reportsupplier');
 
 Route::get('/barang', [BarangController::class, 'index'])->name('barang');
+Route::post('/barang/save', [BarangController::class, 'save'])->name('savebarang');
+Route::put('/barang/update', [BarangController::class, 'update'])->name('updatebarang');
+Route::delete('/barang/delete', [BarangController::class, 'delete'])->name('deletebarang');
+Route::get('/barang/report', [BarangController::class, 'report'])->name('reportbarang');
 
 Route::get('/pembelian', [HomeController::class, 'index'])->name('pembelian');
 Route::get('/penjualan', [HomeController::class, 'index'])->name('penjualan');

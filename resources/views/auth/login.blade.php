@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <title>LOGIN - Toko Obat Sibolga Simarpaung </title>

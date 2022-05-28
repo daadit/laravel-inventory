@@ -30,12 +30,12 @@
                     <span class="pcoded-mtext">Satuan Barang</span>
                 </a>
             </li>
-            <li class="active">
+            <li class="">
                 <a href="{{ route('supplier') }}">
                     <span class="pcoded-mtext">Supplier</span>
                 </a>
             </li>
-            <li class=" ">
+            <li class="active">
                 <a href="{{ route('barang') }}">
                     <span class="pcoded-mtext">Barang</span>
                 </a>
@@ -98,8 +98,8 @@
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>Data Supplier</h4>
-                                    <span>This page is for managing supplier data.</span>
+                                    <h4>Data Barang</h4>
+                                    <span>This page is for managing barang data.</span>
                                 </div>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                                     </li>
                                     <li class="breadcrumb-item"><a href="#!">Master</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">Supplier</a>
+                                    <li class="breadcrumb-item"><a href="#!">Barang</a>
                                     </li>
                                 </ul>
                             </div>
@@ -142,8 +142,8 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <button class="btn btn-mat btn-sm btn-inverse" data-toggle="modal" data-target="#myModal">Tambah Supplier</button>
-                                    <a class="btn btn-mat btn-sm btn-success" href="{{ route('reportsupplier') }}" target="__blank">Laporan Supplier</a>
+                                    <button class="btn btn-mat btn-sm btn-inverse" data-toggle="modal" data-target="#myModal">Tambah Barang</button>
+                                    <a class="btn btn-mat btn-sm btn-success" href="{{ route('reportbarang') }}" target="__blank">Laporan Barang</a>
                                 </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
@@ -151,22 +151,22 @@
                                             <thead>
                                                 <tr>
                                                     <th style="text-align: center;">No</th>
+                                                    <th>Kode</th>
                                                     <th>Nama</th>
-                                                    <th>No. Telp</th>
-                                                    <th>Alamat</th>
+                                                    <th>Jenis</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($supplier as $number => $data)
+                                                @foreach ($barang as $number => $data)
                                                     <tr>
                                                         <td width="8%">{{ ++$number }}</td>
+                                                        <td>{{ $data->kode }}</td>
                                                         <td>{{ $data->nama }}</td>
-                                                        <td>{{ $data->notelp }}</td>
-                                                        <td>{{ $data->alamat }}</td>
+                                                        <td>{{ $data->jenis }}</td>
                                                         <td class="text-center">
                                                             <button class="btn btn-inverse btn-mini" data-toggle="modal"
-                                                                data-target="#editModal{{ $data->id }}">
+                                                                data-target="#editModal{{ $data->kode }}">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                                                                     fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                                                     <path
@@ -174,7 +174,7 @@
                                                                 </svg>
                                                             </button>
                                                             <button class="btn btn-inverse btn-mini" data-toggle="modal"
-                                                                data-target="#deleteModal{{ $data->id }}">
+                                                                data-target="#deleteModal{{ $data->kode }}">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                                                                     fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                                                     <path
@@ -198,89 +198,5 @@
         </div>
     </div>
 </div>
-
-<form action="{{ route('savesupplier') }}" method="post">
-    @method('POST')
-    @csrf
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel">Add supplier</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="Name" required> <br>
-                        <input type="text" name="notelp" onkeypress="return onlyNumber(event)" class="form-control" placeholder="No. Telp" required> <br>
-                        <input type="text" name="alamat" class="form-control" placeholder="Alamat" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-inverse btn-sm">Add</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
-
-@foreach ($supplier as $data)
-    <form action="{{ route('updatesupplier') }}" method="POST">
-        @method('PUT')
-        @csrf
-        <div class="modal made" tabindex="-1" id="editModal{{ $data->id }}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Update supplier</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="hidden" value="{{ $data->id }}" name="id" required />
-                        <input type="text" class="form-control" value="{{ $data->nama }}" autocomplete="off" name="name" placeholder="Name" required /> <br>
-                        <input type="text" class="form-control" onkeypress="return onlyNumber(event)" value="{{ $data->notelp }}" autocomplete="off" name="notelp" placeholder="No. Telp" required /> <br>
-                        <input type="text" class="form-control" value="{{ $data->alamat }}" autocomplete="off" name="alamat" placeholder="Alamat" required /> <br>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-inverse btn-sm">Update</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-    <form action="{{ route('deletesupplier') }}" method="POST">
-        @method('DELETE')
-        @csrf
-        <div class="modal" tabindex="-1" id="deleteModal{{ $data->id }}">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Delete supplier</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="hidden" name="id" required value="{{ $data->id }}" />
-                        <h6>Are you sure you delete this data?</h6>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">No</button>
-                        <button type="submit" class="btn btn-inverse btn-sm">Yes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-@endforeach
-
-<script>
-    function onlyNumber(event) {
-        var angka = (event.which) ? event.which : event.keyCode
-        if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
-            return false;
-        return true;
-    }
-</script>
 
 @endsection
