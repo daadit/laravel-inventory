@@ -150,7 +150,7 @@
                                         <table id="simpletable" width="100%" class="table table-striped table-bordered nowrap">
                                             <thead>
                                                 <tr>
-                                                    <th style="text-align: center;">No</th>
+                                                    {{-- <th style="text-align: center;">No</th> --}}
                                                     <th>Kode</th>
                                                     <th>Nama</th>
                                                     <th>Jenis</th>
@@ -161,7 +161,7 @@
                                             <tbody>
                                                 @foreach ($barang as $number => $data)
                                                     <tr>
-                                                        <td width="8%">{{ ++$number }}</td>
+                                                        {{-- <td width="8%">{{ ++$number }}</td> --}}
                                                         <td>{{ $data->kode }}</td>
                                                         <td>{{ $data->namabarang }}</td>
                                                         <td>{{ $data->namajenis }}</td>
