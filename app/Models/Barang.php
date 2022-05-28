@@ -13,8 +13,9 @@ class Barang extends Model
     public function list()
     {
         return DB::table('barang')
-            ->select('barang.kode AS kode', 'barang.nama AS namabarang', 'jenis.nama AS namajenis')
-            ->join('jenis', 'id', '=', 'jenis')
+            ->select('barang.kode AS kode', 'barang.nama AS namabarang', 'jenis.nama AS namajenis', 'barang.stok AS stok', 'satuan.nama AS namasatuan')
+            ->join('jenis', 'jenis.id', '=', 'jenis')
+            ->join('satuan', 'satuan.id', '=', 'satuan')
             ->get();
     }
 

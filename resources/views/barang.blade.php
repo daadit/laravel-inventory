@@ -154,6 +154,7 @@
                                                     <th>Kode</th>
                                                     <th>Nama</th>
                                                     <th>Jenis</th>
+                                                    <th>Stok</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -164,6 +165,7 @@
                                                         <td>{{ $data->kode }}</td>
                                                         <td>{{ $data->namabarang }}</td>
                                                         <td>{{ $data->namajenis }}</td>
+                                                        <td>{{ $data->stok }} {{ $data->namasatuan }}</td>
                                                         <td class="text-center">
                                                             <button class="btn btn-inverse btn-mini" data-toggle="modal"
                                                                 data-target="#editModal{{ $data->kode }}">
