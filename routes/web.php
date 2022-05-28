@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\SatuanController;
@@ -47,7 +48,7 @@ Route::put('/supplier/update', [SupplierController::class, 'update'])->name('upd
 Route::delete('/supplier/delete', [SupplierController::class, 'delete'])->name('deletesupplier');
 Route::get('/supplier/report', [SupplierController::class, 'report'])->name('reportsupplier');
 
-Route::get('/barang', [HomeController::class, 'index'])->name('barang');
+Route::get('/barang', [BarangController::class, 'index'])->name('barang');
 
 Route::get('/pembelian', [HomeController::class, 'index'])->name('pembelian');
 Route::get('/penjualan', [HomeController::class, 'index'])->name('penjualan');
