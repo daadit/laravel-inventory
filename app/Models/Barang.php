@@ -12,7 +12,10 @@ class Barang extends Model
 
     public function list()
     {
-        return DB::table('barang')->get();
+        return DB::table('barang')
+            ->select('barang.kode AS kode', 'barang.nama AS namabarang', 'jenis.nama AS namajenis')
+            ->join('jenis', 'id', '=', 'jenis')
+            ->get();
     }
 
     public function saveData($data)

@@ -162,8 +162,8 @@
                                                     <tr>
                                                         <td width="8%">{{ ++$number }}</td>
                                                         <td>{{ $data->kode }}</td>
-                                                        <td>{{ $data->nama }}</td>
-                                                        <td>{{ $data->jenis }}</td>
+                                                        <td>{{ $data->namabarang }}</td>
+                                                        <td>{{ $data->namajenis }}</td>
                                                         <td class="text-center">
                                                             <button class="btn btn-inverse btn-mini" data-toggle="modal"
                                                                 data-target="#editModal{{ $data->kode }}">
