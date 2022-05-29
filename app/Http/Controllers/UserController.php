@@ -80,6 +80,16 @@ class UserController extends Controller
         return redirect('/user')->with('success-message', 'Data deleted successfully');
     }
 
+    public function resetpassword(Request $request)
+    {
+        $id = Request()->id;
+        $data = [
+            'password' => Hash::make('12345678'),
+        ];
+        $this->user->updateData($id, $data);
+        return redirect('/user')->with('success-message', 'Password reset successfully');
+    }
+
     public function report()
     {
         $data = [

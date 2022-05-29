@@ -29,7 +29,7 @@ Route::post('/user/save', [UserController::class, 'save'])->name('saveuser');
 Route::put('/user/update', [UserController::class, 'update'])->name('updateuser');
 Route::delete('/user/delete', [UserController::class, 'delete'])->name('deleteuser');
 Route::get('/user/report', [UserController::class, 'report'])->name('reportuser');
-Route::put('/user/reset-password', [UserController::class, 'update'])->name('resetpassword');
+Route::put('/user/reset-password', [UserController::class, 'resetpassword'])->name('resetpassword');
 
 Route::get('/jenis', [JenisController::class, 'index'])->name('jenis');
 Route::post('/jenis/save', [JenisController::class, 'save'])->name('savejenis');
