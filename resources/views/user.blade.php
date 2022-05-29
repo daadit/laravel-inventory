@@ -191,6 +191,13 @@
                                                                         d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                                                                 </svg>
                                                             </button>
+                                                            <button class="btn btn-success btn-mini" data-toggle="modal"
+                                                                data-target="#resetModal{{ $data->id }}">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                                                                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                                                                </svg>
+                                                            </button>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -253,8 +260,7 @@
                     <div class="modal-body">
                         <input type="hidden" value="{{ $data->id }}" name="id" required />
                         <input type="text" class="form-control" value="{{ $data->name }}" autocomplete="off" name="name" placeholder="Name" required /> <br>
-                        <input type="email" class="form-control" value="{{ $data->email }}" autocomplete="off" name="email" placeholder="Email" required /> <br>
-                        <input type="password" class="form-control" value="{{ $data->password }}" readonly autocomplete="off" name="password" placeholder="Password" required /> <br>
+                        <input type="email" class="form-control" value="{{ $data->email }}" readonly autocomplete="off" name="email" placeholder="Email" required /> <br>
                         <select class="form-control" name="role" required>
                             @if ($data->role == 0)
                                 <option selected value="0">Administrator</option>
@@ -292,6 +298,28 @@
                     <div class="modal-body">
                         <input type="hidden" name="id" required value="{{ $data->id }}" />
                         <h6>Are you sure you delete this data?</h6>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">No</button>
+                        <button type="submit" class="btn btn-inverse btn-sm">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form action="{{ route('resetpassword') }}" method="POST">
+        @method('PUT')
+        @csrf
+        <div class="modal" tabindex="-1" id="resetModal{{ $data->id }}">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Reset password user</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="id" required value="{{ $data->id }}" />
+                        <h6>Password user ini akan direset menjadi '12345678'</h6>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">No</button>
