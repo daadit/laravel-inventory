@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\Jenis;
+use App\Models\Satuan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -11,13 +13,17 @@ class BarangController extends Controller
     public function __construct()
     {
         $this->barang = new Barang();
+        $this->jenis = new Jenis();
+        $this->satuan = new Satuan();
         $this->middleware('auth');
     }
 
     public function index()
     {
         $data = [
-            'barang' => $this->barang->list()
+            'barang' => $this->barang->list(),
+            'jenis' => $this->jenis->list(),
+            'satuan' => $this->satuan->list()
         ];
         return view('barang', $data);
     }

@@ -212,5 +212,100 @@
     </div>
 </div>
 
+<form action="{{ route('savebarang') }}" method="post">
+    @method('POST')
+    @csrf
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="myModalLabel">Add barang</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="kode" class="form-control" placeholder="Kode Barang" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="nama" class="form-control" placeholder="Nama Barang" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <select class="form-control" name="jenis" required>
+                                    @foreach ($jenis as $data)
+                                        <option value="0">{{ $data->nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <select class="form-control" name="satuan" required>
+                                    @foreach ($satuan as $data)
+                                        <option value="0">{{ $data->nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-4">
+                            <div class="form-group">
+                                <input type="text" name="stok" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Stok" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-4">
+                            <div class="form-group">
+                                <input type="text" name="hargabeli" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Harga Beli" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-4">
+                            <div class="form-group">
+                                <input type="text" name="hargajual" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Harga Jual" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-4">
+                            <div class="form-group">
+                                <input type="text" name="biayapesan" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Biaya Pesan" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-4">
+                            <div class="form-group">
+                                <input type="text" name="biayasimpan" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Biaya Simpan" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-4">
+                            <div class="form-group">
+                                <input type="text" name="leadtime" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Leadtime" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-inverse btn-sm">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    function onlyNumber(event) {
+        var angka = (event.which) ? event.which : event.keyCode
+        if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+            return false;
+        return true;
+    }
+</script>
 
 @endsection
