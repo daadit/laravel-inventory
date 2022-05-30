@@ -262,24 +262,28 @@
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-4">
-                            <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Rp</span>
                                 <input type="text" name="hargabeli" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Harga Beli" required>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-4">
-                            <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Rp</span>
                                 <input type="text" name="hargajual" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Harga Jual" required>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-4">
-                            <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Rp</span>
                                 <input type="text" name="biayapesan" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Biaya Pesan" required>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-4">
-                            <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Rp</span>
                                 <input type="text" name="biayasimpan" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Biaya Simpan" required>
                             </div>
                         </div>
