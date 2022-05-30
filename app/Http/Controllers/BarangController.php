@@ -70,14 +70,14 @@ class BarangController extends Controller
     {
         // Membuat validasi
         $validated = Validator::make($request->all(), [
-            'id' => 'required',
+            'kode' => 'required',
             'name' => 'required|max:255'
         ]);
 
         if ($validated->fails()) {
             return redirect('/barang')->with('failed-message', 'Data failed to update')->withErrors($validated, 'content');
         } else {
-            $id = Request()->id;
+            $id = Request()->kode;
             $data = [
                 'nama' => Request()->name
             ];
@@ -88,7 +88,7 @@ class BarangController extends Controller
 
     public function delete()
     {
-        $id = Request()->id;
+        $id = Request()->kode;
         $this->barang->deleteData($id);
         return redirect('/barang')->with('success-message', 'Data deleted successfully');
     }

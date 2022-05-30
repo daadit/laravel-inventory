@@ -27,14 +27,14 @@ class Barang extends Model
     public function updateData($id, $data)
     {
         DB::table('barang')
-            ->where('id', '=', $id)
+            ->where('kode', '=', $id)
             ->update($data);
     }
 
     public function deleteData($id)
     {
         DB::table('barang')
-            ->where('id', '=', $id)
+            ->where('kode', '=', $id)
             ->delete();
     }
 }

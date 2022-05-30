@@ -220,7 +220,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-inverse btn-sm">Update</button>
+                        <button type="submit" class="btn btn-inverse btn-sm">Change Password</button>
                     </div>
                 </div>
             </div>

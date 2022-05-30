@@ -299,6 +299,53 @@
     </div>
 </form>
 
+@foreach ($barang as $data)
+    <form action="{{ route('updatebarang') }}" method="POST">
+        @method('PUT')
+        @csrf
+        <div class="modal made" tabindex="-1" id="editModal{{ $data->kode }}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title">Update barang</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" value="{{ $data->kode }}" name="kode" required />
+                        <input type="text" class="form-control" value="{{ $data->namabarang }}" autocomplete="off" name="name" placeholder="Name" required /> <br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-inverse btn-sm">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form action="{{ route('deletebarang') }}" method="POST">
+        @method('DELETE')
+        @csrf
+        <div class="modal" tabindex="-1" id="deleteModal{{ $data->kode }}">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title">Delete barang</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="kode" required value="{{ $data->kode }}" />
+                        <h6>Are you sure you delete this data?</h6>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">No</button>
+                        <button type="submit" class="btn btn-inverse btn-sm">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+@endforeach
+
 <script>
     function onlyNumber(event) {
         var angka = (event.which) ? event.which : event.keyCode
