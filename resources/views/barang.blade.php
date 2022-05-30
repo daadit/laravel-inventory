@@ -240,7 +240,7 @@
                             <div class="form-group">
                                 <select class="form-control" name="jenis" required>
                                     @foreach ($jenis as $data)
-                                        <option value="0">{{ $data->nama }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->nama }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -249,7 +249,7 @@
                             <div class="form-group">
                                 <select class="form-control" name="satuan" required>
                                     @foreach ($satuan as $data)
-                                        <option value="0">{{ $data->nama }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->nama }}</option>
                                     @endforeach
                                 </select>
                             </div>
