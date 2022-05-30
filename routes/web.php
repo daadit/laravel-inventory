@@ -59,6 +59,7 @@ Route::delete('/barang/delete', [BarangController::class, 'delete'])->name('dele
 Route::get('/barang/report', [BarangController::class, 'report'])->name('reportbarang');
 
 Route::get('/pembelian', [PembelianController::class, 'index'])->name('pembelian');
+Route::get('/pembelian/add', [PembelianController::class, 'add'])->name('tambahpembelian');
 Route::get('/penjualan', [HomeController::class, 'index'])->name('penjualan');
 
 Route::get('/report-stok-barang', [HomeController::class, 'index'])->name('report-stok-barang');

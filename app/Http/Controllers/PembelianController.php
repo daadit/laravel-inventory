@@ -20,4 +20,12 @@ class PembelianController extends Controller
         ];
         return view('pembelian', $data);
     }
+
+    public function add()
+    {
+        $data = [
+            'pembelian' => $this->pembelian->list()
+        ];
+        return view('tambah-pembelian', $data);
+    }
 }
