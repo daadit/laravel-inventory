@@ -70,8 +70,16 @@ class BarangController extends Controller
     {
         // Membuat validasi
         $validated = Validator::make($request->all(), [
-            'kode' => 'required',
-            'name' => 'required|max:255'
+            'kode' => 'required|max:255',
+            'nama' => 'required|max:255',
+            'jenis' => 'required|max:255',
+            'satuan' => 'required|max:255',
+            'stok' => 'required|max:255',
+            'hargabeli' => 'required|max:255',
+            'hargajual' => 'required|max:255',
+            'biayapesan' => 'required|max:255',
+            'biayasimpan' => 'required|max:255',
+            'leadtime' => 'required|max:255',
         ]);
 
         if ($validated->fails()) {
@@ -79,7 +87,15 @@ class BarangController extends Controller
         } else {
             $id = Request()->kode;
             $data = [
-                'nama' => Request()->name
+                'nama' => Request()->nama,
+                'jenis' => Request()->jenis,
+                'satuan' => Request()->satuan,
+                'stok' => Request()->stok,
+                'hargabeli' => Request()->hargabeli,
+                'hargajual' => Request()->hargajual,
+                'biayapesan' => Request()->biayapesan,
+                'biayasimpan' => Request()->biayasimpan,
+                'leadtime' => Request()->leadtime,
             ];
             $this->barang->updateData($id, $data);
             return redirect('/barang')->with('success-message', 'Data updated successfully');

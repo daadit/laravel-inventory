@@ -308,15 +308,91 @@
         @method('PUT')
         @csrf
         <div class="modal made" tabindex="-1" id="editModal{{ $data->kode }}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h6 class="modal-title">Update barang</h6>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
-                        <input type="hidden" value="{{ $data->kode }}" name="kode" required />
-                        <input type="text" class="form-control" value="{{ $data->namabarang }}" autocomplete="off" name="name" placeholder="Name" required /> <br>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" name="kode" value="{{ $data->kode }}" class="form-control" placeholder="Kode Barang" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" name="nama" value="{{ $data->namabarang }}" class="form-control" placeholder="Nama Barang" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                <div class="form-group">
+                                    <select class="form-control" name="jenis" required>
+                                        @foreach ($jenis as $datajenis)
+                                            @if ($datajenis->id == $data->jenis)
+                                                <option selected value="{{ $datajenis->id }}">{{ $datajenis->nama }}</option>
+                                            @else
+                                                <option value="{{ $datajenis->id }}">{{ $datajenis->nama }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                <div class="form-group">
+                                    <select class="form-control" name="satuan" required>
+                                        @foreach ($satuan as $datasatuan)
+                                            @if ($datasatuan->id == $data->satuan)
+                                                <option selected value="{{ $datasatuan->id }}">{{ $datasatuan->nama }}</option>
+                                            @else
+                                                <option value="{{ $datasatuan->id }}">{{ $datasatuan->nama }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-4">
+                                <div class="form-group">
+                                    <input type="text" name="stok" value="{{ $data->stok }}" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Stok" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Rp</span>
+                                    <input type="text" name="hargabeli" value="{{ $data->hargabeli }}" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Harga Beli" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Rp</span>
+                                    <input type="text" name="hargajual" value="{{ $data->hargajual }}" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Harga Jual" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Rp</span>
+                                    <input type="text" name="biayapesan" value="{{ $data->biayapesan }}" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Biaya Pesan" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Rp</span>
+                                    <input type="text" name="biayasimpan" value="{{ $data->biayasimpan }}" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Biaya Simpan" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-4">
+                                <div class="form-group">
+                                    <input type="text" name="leadtime" value="{{ $data->leadtime }}" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Leadtime" required>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
