@@ -371,10 +371,10 @@
                             <h6 class="font-weight-bold">{{ $data->namajenis }}</h6> <br>
                             <h6 class="font-weight-bold">{{ $data->namasatuan }}</h6> <br>
                             <h6 class="font-weight-bold">{{ $data->stok }}</h6> <br>
-                            <h6 class="font-weight-bold">{{ $data->hargabeli }}</h6> <br>
-                            <h6 class="font-weight-bold">{{ $data->hargajual }}</h6> <br>
-                            <h6 class="font-weight-bold">{{ $data->biayapesan }}</h6> <br>
-                            <h6 class="font-weight-bold">{{ $data->biayasimpan }}</h6> <br>
+                            <h6 class="font-weight-bold">@currency($data->hargabeli)</h6> <br>
+                            <h6 class="font-weight-bold">@currency($data->hargajual)</h6> <br>
+                            <h6 class="font-weight-bold">@currency($data->biayapesan)</h6> <br>
+                            <h6 class="font-weight-bold">@currency($data->biayasimpan)</h6> <br>
                             <h6 class="font-weight-bold">{{ $data->leadtime }}</h6> <br>
                         </div>
                     </div>
