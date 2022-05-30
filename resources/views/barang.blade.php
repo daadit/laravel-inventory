@@ -225,18 +225,21 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-6">
+                            <label>Kode Barang</label>
                             <div class="form-group">
-                                <input type="text" name="kode" class="form-control" placeholder="Kode Barang" required>
+                                <input type="text" name="kode" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-6">
+                            <label>Nama Barang</label>
                             <div class="form-group">
-                                <input type="text" name="nama" class="form-control" placeholder="Nama Barang" required>
+                                <input type="text" name="nama" class="form-control" required>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-6">
+                            <label>Jenis Barang</label>
                             <div class="form-group">
                                 <select class="form-control" name="jenis" required>
                                     @foreach ($jenis as $data)
@@ -246,6 +249,7 @@
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-6">
+                            <label>Satuan Barang</label>
                             <div class="form-group">
                                 <select class="form-control" name="satuan" required>
                                     @foreach ($satuan as $data)
@@ -257,39 +261,45 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-4">
+                            <label>Stok Barang</label>
                             <div class="form-group">
-                                <input type="text" name="stok" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Stok" required>
+                                <input type="text" name="stok" onkeypress="return onlyNumber(event)" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-4">
+                            <label>Harga Beli</label>
                             <div class="input-group">
                                 <span class="input-group-addon">Rp</span>
-                                <input type="text" name="hargabeli" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Harga Beli" required>
+                                <input type="text" name="hargabeli" onkeypress="return onlyNumber(event)" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-4">
+                            <label>Harga Jual</label>
                             <div class="input-group">
                                 <span class="input-group-addon">Rp</span>
-                                <input type="text" name="hargajual" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Harga Jual" required>
+                                <input type="text" name="hargajual" onkeypress="return onlyNumber(event)" class="form-control" required>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-4">
+                            <label>Biaya Pesan</label>
                             <div class="input-group">
                                 <span class="input-group-addon">Rp</span>
-                                <input type="text" name="biayapesan" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Biaya Pesan" required>
+                                <input type="text" name="biayapesan" onkeypress="return onlyNumber(event)" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-4">
+                            <label>Biaya Simpan</label>
                             <div class="input-group">
                                 <span class="input-group-addon">Rp</span>
-                                <input type="text" name="biayasimpan" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Biaya Simpan" required>
+                                <input type="text" name="biayasimpan" onkeypress="return onlyNumber(event)" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-4">
+                            <label>Leadtime</label>
                             <div class="form-group">
-                                <input type="text" name="leadtime" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Leadtime" required>
+                                <input type="text" name="leadtime" onkeypress="return onlyNumber(event)" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -317,18 +327,21 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-6">
+                                <label>Kode Barang</label>
                                 <div class="form-group">
-                                    <input type="text" name="kode" value="{{ $data->kode }}" class="form-control" placeholder="Kode Barang" required>
+                                    <input type="text" name="kode" readonly value="{{ $data->kode }}" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-6">
+                                <label>Nama Barang</label>
                                 <div class="form-group">
-                                    <input type="text" name="nama" value="{{ $data->namabarang }}" class="form-control" placeholder="Nama Barang" required>
+                                    <input type="text" name="nama" value="{{ $data->namabarang }}" class="form-control" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-6">
+                                <label>Jenis Barang</label>
                                 <div class="form-group">
                                     <select class="form-control" name="jenis" required>
                                         @foreach ($jenis as $datajenis)
@@ -342,6 +355,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-6">
+                                <label>Satuan Barang</label>
                                 <div class="form-group">
                                     <select class="form-control" name="satuan" required>
                                         @foreach ($satuan as $datasatuan)
@@ -357,39 +371,45 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-4">
+                                <label>Stok Barang</label>
                                 <div class="form-group">
-                                    <input type="text" name="stok" value="{{ $data->stok }}" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Stok" required>
+                                    <input type="text" name="stok" value="{{ $data->stok }}" onkeypress="return onlyNumber(event)" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-4">
+                                <label>Harga Beli</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">Rp</span>
-                                    <input type="text" name="hargabeli" value="{{ $data->hargabeli }}" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Harga Beli" required>
+                                    <input type="text" name="hargabeli" value="{{ $data->hargabeli }}" onkeypress="return onlyNumber(event)" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-4">
+                                <label>Harga Jual</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">Rp</span>
-                                    <input type="text" name="hargajual" value="{{ $data->hargajual }}" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Harga Jual" required>
+                                    <input type="text" name="hargajual" value="{{ $data->hargajual }}" onkeypress="return onlyNumber(event)" class="form-control" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-4">
+                                <label>Biaya Pesan</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">Rp</span>
-                                    <input type="text" name="biayapesan" value="{{ $data->biayapesan }}" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Biaya Pesan" required>
+                                    <input type="text" name="biayapesan" value="{{ $data->biayapesan }}" onkeypress="return onlyNumber(event)" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-4">
+                                <label>Biaya Simpan</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">Rp</span>
-                                    <input type="text" name="biayasimpan" value="{{ $data->biayasimpan }}" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Biaya Simpan" required>
+                                    <input type="text" name="biayasimpan" value="{{ $data->biayasimpan }}" onkeypress="return onlyNumber(event)" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-4">
+                                <label>Leadtime</label>
                                 <div class="form-group">
-                                    <input type="text" name="leadtime" value="{{ $data->leadtime }}" onkeypress="return onlyNumber(event)" class="form-control" placeholder="Leadtime" required>
+                                    <input type="text" name="leadtime" value="{{ $data->leadtime }}" onkeypress="return onlyNumber(event)" class="form-control" required>
                                 </div>
                             </div>
                         </div>
