@@ -30,6 +30,8 @@ Route::put('/user/update', [UserController::class, 'update'])->name('updateuser'
 Route::delete('/user/delete', [UserController::class, 'delete'])->name('deleteuser');
 Route::get('/user/report', [UserController::class, 'report'])->name('reportuser');
 Route::put('/user/reset-password', [UserController::class, 'resetpassword'])->name('resetpassword');
+Route::put('/user/update-profile', [UserController::class, 'updateprofile'])->name('updateprofile');
+Route::put('/user/change-password', [UserController::class, 'changepassword'])->name('changepassword');
 
 Route::get('/jenis', [JenisController::class, 'index'])->name('jenis');
 Route::post('/jenis/save', [JenisController::class, 'save'])->name('savejenis');

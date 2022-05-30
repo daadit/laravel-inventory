@@ -90,6 +90,26 @@ class UserController extends Controller
         return redirect('/user')->with('success-message', 'Password reset successfully');
     }
 
+    public function updateprofile(Request $request)
+    {
+        $id = Request()->id;
+        $data = [
+            'name' => Request()->nama,
+        ];
+        $this->user->updateData($id, $data);
+        return redirect('/')->with('success-message', 'Update profile successfully');
+    }
+
+    public function changepassword(Request $request)
+    {
+        $id = Request()->id;
+        $data = [
+            'password' => Hash::make(Request()->password),
+        ];
+        $this->user->updateData($id, $data);
+        return redirect('/')->with('success-message', 'Change password successfully');
+    }
+
     public function report()
     {
         $data = [

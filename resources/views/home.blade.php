@@ -103,7 +103,7 @@
                                     <div class="row align-items-end">
                                         <div class="col-8">
                                             <h4 class="text-white">$30200</h4>
-                                            <h6 class="text-white m-b-0">All Earnings</h6>
+                                            <h6 class="text-white m-b-0">Supplier</h6>
                                         </div>
                                         <div class="col-4 text-right">
                                             <canvas id="update-chart-1" height="50"></canvas>
@@ -121,7 +121,7 @@
                                     <div class="row align-items-end">
                                         <div class="col-8">
                                             <h4 class="text-white">290+</h4>
-                                            <h6 class="text-white m-b-0">Page Views</h6>
+                                            <h6 class="text-white m-b-0">Barang</h6>
                                         </div>
                                         <div class="col-4 text-right">
                                             <canvas id="update-chart-2" height="50"></canvas>
@@ -139,7 +139,7 @@
                                     <div class="row align-items-end">
                                         <div class="col-8">
                                             <h4 class="text-white">145</h4>
-                                            <h6 class="text-white m-b-0">Task Completed</h6>
+                                            <h6 class="text-white m-b-0">Penjualan</h6>
                                         </div>
                                         <div class="col-4 text-right">
                                             <canvas id="update-chart-3" height="50"></canvas>
@@ -157,7 +157,7 @@
                                     <div class="row align-items-end">
                                         <div class="col-8">
                                             <h4 class="text-white">500</h4>
-                                            <h6 class="text-white m-b-0">Downloads</h6>
+                                            <h6 class="text-white m-b-0">Pembelian</h6>
                                         </div>
                                         <div class="col-4 text-right">
                                             <canvas id="update-chart-4" height="50"></canvas>

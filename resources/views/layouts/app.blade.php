@@ -140,13 +140,13 @@
                                     </div>
                                     <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                                         <li>
-                                            <a href="user-profile.htm">
+                                            <a data-toggle="modal" data-target="#editProfile">
                                                 <i class="feather icon-user"></i> Profile
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="auth-lock-screen.htm">
-                                                <i class="feather icon-lock"></i> Lock Screen
+                                            <a data-toggle="modal" data-target="#changePassword">
+                                                <i class="feather icon-lock"></i> Change Password
                                             </a>
                                         </li>
                                         <li>
@@ -179,6 +179,54 @@
             </div>
         </div>
     </div>
+
+    <form action="{{ route('updateprofile') }}" method="POST">
+        @method('PUT')
+        @csrf
+        <div class="modal made" tabindex="-1" id="editProfile" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title">Update profile</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" value="@guest @else{{ Auth::user()->id }} @endguest" name="id" required />
+                        <input type="text" class="form-control" value="@guest @else{{ Auth::user()->name }} @endguest" autocomplete="off" name="nama" placeholder="Name" required /> <br>
+                        <input type="email" class="form-control" value="@guest @else{{ Auth::user()->email }} @endguest" readonly autocomplete="off" name="email" placeholder="Email" required /> <br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-inverse btn-sm">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form action="{{ route('changepassword') }}" method="POST">
+        @method('PUT')
+        @csrf
+        <div class="modal made" tabindex="-1" id="changePassword" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title">Change Password</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" value="@guest @else{{ Auth::user()->id }} @endguest" name="id" required />
+                        <input type="text" class="form-control" autocomplete="off" name="password" placeholder="New Password" required /> <br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-inverse btn-sm">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
     <!-- Required Jquery -->
     <script type="text/javascript" src="{{ asset('bower_components') }}\jquery\js\jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('bower_components') }}\jquery-ui\js\jquery-ui.min.js"></script>
