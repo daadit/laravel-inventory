@@ -3,6 +3,7 @@
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisController;
+use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
@@ -57,7 +58,7 @@ Route::put('/barang/update', [BarangController::class, 'update'])->name('updateb
 Route::delete('/barang/delete', [BarangController::class, 'delete'])->name('deletebarang');
 Route::get('/barang/report', [BarangController::class, 'report'])->name('reportbarang');
 
-Route::get('/pembelian', [HomeController::class, 'index'])->name('pembelian');
+Route::get('/pembelian', [PembelianController::class, 'index'])->name('pembelian');
 Route::get('/penjualan', [HomeController::class, 'index'])->name('penjualan');
 
 Route::get('/report-stok-barang', [HomeController::class, 'index'])->name('report-stok-barang');
