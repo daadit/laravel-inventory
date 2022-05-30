@@ -344,6 +344,47 @@
             </div>
         </div>
     </form>
+    <div class="modal made" tabindex="-1" id="detailModal{{ $data->kode }}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Detail barang</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-5">
+                            <h6>Kode Barang</h6> <br>
+                            <h6>Nama Barang</h6> <br>
+                            <h6>Jenis</h6> <br>
+                            <h6>Satuan</h6> <br>
+                            <h6>Stok</h6> <br>
+                            <h6>Harga Beli</h6> <br>
+                            <h6>Harga Jual</h6> <br>
+                            <h6>Biaya Pesan</h6> <br>
+                            <h6>Biaya Simpan</h6> <br>
+                            <h6>Leadtime</h6> <br>
+                        </div>
+                        <div class="col-7">
+                            <h6 class="font-weight-bold">{{ $data->kode }}</h6> <br>
+                            <h6 class="font-weight-bold">{{ $data->namabarang }}</h6> <br>
+                            <h6 class="font-weight-bold">{{ $data->namajenis }}</h6> <br>
+                            <h6 class="font-weight-bold">{{ $data->namasatuan }}</h6> <br>
+                            <h6 class="font-weight-bold">{{ $data->stok }}</h6> <br>
+                            <h6 class="font-weight-bold">{{ $data->hargabeli }}</h6> <br>
+                            <h6 class="font-weight-bold">{{ $data->hargajual }}</h6> <br>
+                            <h6 class="font-weight-bold">{{ $data->biayapesan }}</h6> <br>
+                            <h6 class="font-weight-bold">{{ $data->biayasimpan }}</h6> <br>
+                            <h6 class="font-weight-bold">{{ $data->leadtime }}</h6> <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endforeach
 
 <script>
