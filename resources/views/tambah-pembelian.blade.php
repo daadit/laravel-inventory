@@ -124,7 +124,7 @@
                     <div class="row"> 
                         <div class="col-lg-12">
                             <div class="card">
-                                <div class="card-header">
+                                {{-- <div class="card-header">
                                     <div class="row justify-content-end">
                                         <div class="col-lg-6">
                                             @if (session('success-message'))
@@ -144,13 +144,13 @@
                                             @endif
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="card-block">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <label>No. Faktur</label>
                                             <div class="form-group">
-                                                <input type="text" name="faktur" class="form-control" placeholder="No. Faktur" required>
+                                                <input type="text" readonly name="faktur" class="form-control" placeholder="No. Faktur" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -165,11 +165,48 @@
                                             <label>Supplier</label>
                                             <div class="input-group">
                                                 <input type="hidden" id="idsupplier" name="idsupplier">
-                                                <input type="text" name="namasupplier" class="form-control" placeholder="Supplier" required>
+                                                <input type="text" readonly name="namasupplier" class="form-control" placeholder="Supplier" required>
                                                 <span class="input-group-addon" id="carisupplier"><i class="feather icon-search"></i></span>
                                             </div>
                                         </div>
                                     </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <label>Kode Barang</label>
+                                            <div class="input-group">
+                                                <input type="text" readonly name="kodebarang" class="form-control" placeholder="Kode Barang" required>
+                                                <span class="input-group-addon" id="caribarang"><i class="feather icon-search"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <label>Nama Barang</label>
+                                            <div class="form-group">
+                                                <input type="text" readonly name="namabarang" class="form-control" placeholder="Nama Barang" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <label>Harga</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon">Rp</span>
+                                                <input type="text" readonly name="faktur" class="form-control" placeholder="0" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <label>Qty</label>
+                                            <div class="form-group">
+                                                <input type="text" name="qty" class="form-control" placeholder="Qty" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <button class="btn btn-inverse btn-sm" style="margin-top: 28px">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <br>
                                     <div class="dt-responsive table-responsive">
                                         <table id="simpletable" width="100%" class="table table-striped table-bordered nowrap">
                                             <thead>
@@ -223,6 +260,22 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    {{-- <div class="row justify-content-end">
+                                        <div class="col-lg-3">
+                                        </div>
+                                    </div> --}}
+                                    <div class="row justify-content-end">
+                                        <div class="col-lg-3">
+                                            <button class="btn btn-default btn-sm">
+                                                Kembali
+                                            </button>
+                                            <button class="btn btn-inverse btn-sm">
+                                                Simpan & Cetak Faktur
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
