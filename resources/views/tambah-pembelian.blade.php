@@ -163,8 +163,10 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <label>Supplier</label>
-                                            <div class="form-group">
-                                                <input type="text" name="name" class="form-control" placeholder="Name" required>
+                                            <div class="input-group">
+                                                <input type="hidden" id="idsupplier" name="idsupplier">
+                                                <input type="text" name="namasupplier" class="form-control" placeholder="Supplier" required>
+                                                <span class="input-group-addon" id="carisupplier"><i class="feather icon-search"></i></span>
                                             </div>
                                         </div>
                                     </div>
