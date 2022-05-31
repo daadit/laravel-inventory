@@ -98,8 +98,8 @@
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>Data Pembelian</h4>
-                                    <span>This page is for managing pembelian data.</span>
+                                    <h4>Form Pembelian</h4>
+                                    <span>This page is for managing form pembelian.</span>
                                 </div>
                             </div>
                         </div>
@@ -107,11 +107,13 @@
                             <div class="page-header-breadcrumb">
                                 <ul class="breadcrumb-title">
                                     <li class="breadcrumb-item">
-                                        <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
+                                        <a href="{{ route('home') }}"> <i class="feather icon-home"></i> </a>
                                     </li>
                                     <li class="breadcrumb-item"><a href="#!">Transaksi</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">Pembelian</a>
+                                    <li class="breadcrumb-item"><a href="{{ route('pembelian') }}">Pembelian</a>
+                                    </li>
+                                    <li class="breadcrumb-item"><a href="#!">Tambah</a>
                                     </li>
                                 </ul>
                             </div>
@@ -142,10 +144,30 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <a class="btn btn-mat btn-sm btn-inverse" href="{{ route('tambahpembelian') }}">Tambah Pembelian</a>
-                                    {{-- <a class="btn btn-mat btn-sm btn-success" href="{{ route('reportbarang') }}" target="__blank">Laporan Barang</a> --}}
                                 </div>
                                 <div class="card-block">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label>No. Faktur</label>
+                                            <div class="form-group">
+                                                <input type="text" name="faktur" class="form-control" placeholder="No. Faktur" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label>Tanggal Masuk</label>
+                                            <div class="form-group">
+                                                <input type="date" name="tanggal" class="form-control" placeholder="Tanggal Masuk" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label>Supplier</label>
+                                            <div class="form-group">
+                                                <input type="text" name="name" class="form-control" placeholder="Name" required>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="dt-responsive table-responsive">
                                         <table id="simpletable" width="100%" class="table table-striped table-bordered nowrap">
                                             <thead>
