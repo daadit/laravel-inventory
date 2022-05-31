@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use App\Models\Pembelian;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ class PembelianController extends Controller
     {
         $this->pembelian = new Pembelian();
         $this->supplier = new Supplier();
+        $this->barang = new Barang();
         $this->middleware('auth');
     }
 
@@ -27,7 +29,8 @@ class PembelianController extends Controller
     {
         $data = [
             'pembelian' => $this->pembelian->list(),
-            'supplier' => $this->supplier->list()
+            'supplier' => $this->supplier->list(),
+            'barang' => $this->barang->list(),
         ];
         return view('tambah-pembelian', $data);
     }

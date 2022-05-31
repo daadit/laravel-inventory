@@ -175,21 +175,21 @@
                                         <div class="col-lg-3">
                                             <label>Kode Barang</label>
                                             <div class="input-group">
-                                                <input type="text" readonly name="kodebarang" class="form-control" placeholder="Kode Barang" required>
-                                                <span class="input-group-addon" id="caribarang"><i class="feather icon-search"></i></span>
+                                                <input type="text" readonly name="kodebarang" class="form-control kodebarang" placeholder="Kode Barang" required>
+                                                <span data-toggle="modal" data-target="#modalBarang" class="input-group-addon" id="caribarang"><i class="feather icon-search"></i></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <label>Nama Barang</label>
                                             <div class="form-group">
-                                                <input type="text" readonly name="namabarang" class="form-control" placeholder="Nama Barang" required>
+                                                <input type="text" readonly name="namabarang" class="form-control namabarang" placeholder="Nama Barang" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <label>Harga</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon">Rp</span>
-                                                <input type="text" readonly name="faktur" class="form-control" placeholder="0" required>
+                                                <input type="text" readonly name="faktur" class="form-control hargabarang" placeholder="0" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-2">
@@ -334,6 +334,54 @@
     </div>
 </div>
 
+{{-- Modal barang --}}
+<div class="modal fade" id="modalBarang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="myModalLabel">Cari barang</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="dt-responsive table-responsive">
+                    <table id="simpletablemodaltwo" width="100%" class="table table-striped table-bordered nowrap">
+                        <thead>
+                            <tr>
+                                {{-- <th style="text-align: center;">No</th> --}}
+                                <th>Kode</th>
+                                <th>Nama</th>
+                                <th>Stok</th>
+                                <th>Harga Beli</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($barang as $number => $data)
+                                <tr>
+                                    <td>{{ $data->kode }}</td>
+                                    <td>{{ $data->namabarang }}</td>
+                                    <td>{{ $data->stok }} {{ $data->namasatuan }}</td>
+                                    <td>@currency($data->hargabeli)</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-inverse btn-mini btn-pilihbarang" data-kode="{{ $data->kode }}" data-nama="{{ $data->namabarang }}" data-harga="{{ $data->hargabeli }}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+                                            </svg>
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript" src="{{ asset('bower_components') }}\jquery\js\jquery.min.js"></script>
 <script>
     $('.btn-pilihsupplier').on('click', function() {
@@ -342,6 +390,16 @@
         $('.idsupplier').val(id);
         $('.namasupplier').val(nama);
         $('#modalSupplier').modal('hide');
+    });
+
+    $('.btn-pilihbarang').on('click', function() {
+        const kode = $(this).data('kode');
+        const nama = $(this).data('nama');
+        const harga = $(this).data('harga');
+        $('.kodebarang').val(kode);
+        $('.namabarang').val(nama);
+        $('.hargabarang').val(harga);
+        $('#modalBarang').modal('hide');
     });
 </script>
 

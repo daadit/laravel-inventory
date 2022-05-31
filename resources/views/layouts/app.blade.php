@@ -279,6 +279,9 @@
         responsive: true
     });
 
+    $('#simpletablemodaltwo').DataTable({
+        responsive: true
+    });
 </script>
 
 </body>
