@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pembelian;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class PembelianController extends Controller
@@ -10,6 +11,7 @@ class PembelianController extends Controller
     public function __construct()
     {
         $this->pembelian = new Pembelian();
+        $this->supplier = new Supplier();
         $this->middleware('auth');
     }
 
@@ -24,7 +26,8 @@ class PembelianController extends Controller
     public function add()
     {
         $data = [
-            'pembelian' => $this->pembelian->list()
+            'pembelian' => $this->pembelian->list(),
+            'supplier' => $this->supplier->list()
         ];
         return view('tambah-pembelian', $data);
     }

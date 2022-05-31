@@ -274,6 +274,11 @@
     $('#simpletable').DataTable({
         responsive: true
     });
+
+    $('#simpletablemodal').DataTable({
+        responsive: true
+    });
+
 </script>
 
 </body>
