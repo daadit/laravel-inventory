@@ -150,13 +150,13 @@
                                         <div class="col-lg-6">
                                             <label>No. Faktur</label>
                                             <div class="form-group">
-                                                <input type="text" readonly name="faktur" class="form-control" placeholder="No. Faktur" required>
+                                                <input type="text" value="{{ $faktur }}" readonly name="faktur" class="form-control" placeholder="No. Faktur" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <label>Tanggal Masuk</label>
                                             <div class="form-group">
-                                                <input type="date" name="tanggal" class="form-control" placeholder="Tanggal Masuk" required>
+                                                <input type="date" value="{{ $datenow }}" name="tanggal" class="form-control" placeholder="Tanggal Masuk" required>
                                             </div>
                                         </div>
                                     </div>

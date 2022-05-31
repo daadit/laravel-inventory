@@ -27,10 +27,17 @@ class PembelianController extends Controller
 
     public function add()
     {
+        $datenow = date('Y-m-d');
+
+        $generateRandom = rand(100, 999);
+        $generateDate = date('YmdHis');
+        $generatefaktur = 'MS-' . $generateDate . $generateRandom;
         $data = [
             'pembelian' => $this->pembelian->list(),
             'supplier' => $this->supplier->list(),
             'barang' => $this->barang->list(),
+            'faktur' => $generatefaktur,
+            'datenow' => $datenow
         ];
         return view('tambah-pembelian', $data);
     }
