@@ -269,7 +269,7 @@
                                     </div> --}}
                                     <div class="row justify-content-end">
                                         <div class="col-lg-3">
-                                            <button class="btn btn-default btn-sm">
+                                            <button type="button" onclick="window.location='{{ route('pembelian') }}'" class="btn btn-default btn-sm">
                                                 Kembali
                                             </button>
                                             <button class="btn btn-inverse btn-sm">
