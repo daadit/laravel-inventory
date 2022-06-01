@@ -195,7 +195,7 @@
                                         <div class="col-lg-2">
                                             <label>Qty</label>
                                             <div class="form-group">
-                                                <input type="text" name="qty" class="form-control" placeholder="Qty" required>
+                                                <input type="text" name="qty" class="form-control qty" placeholder="Qty" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-1">
@@ -399,6 +399,7 @@
         $('.kodebarang').val(kode);
         $('.namabarang').val(nama);
         $('.hargabarang').val(harga);
+        $('.qty').val('1');
         $('#modalBarang').modal('hide');
     });
 </script>
