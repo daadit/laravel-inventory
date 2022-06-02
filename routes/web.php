@@ -4,6 +4,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\PembelianController;
+use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
@@ -60,7 +61,8 @@ Route::get('/barang/report', [BarangController::class, 'report'])->name('reportb
 
 Route::get('/pembelian', [PembelianController::class, 'index'])->name('pembelian');
 Route::get('/pembelian/tambah', [PembelianController::class, 'add'])->name('tambahpembelian');
-Route::get('/penjualan', [HomeController::class, 'index'])->name('penjualan');
+
+Route::get('/penjualan', [PenjualanController::class, 'index'])->name('penjualan');
 
 Route::get('/report-stok-barang', [HomeController::class, 'index'])->name('report-stok-barang');
 Route::get('/report-pembelian', [HomeController::class, 'index'])->name('report-pembelian');
