@@ -16,4 +16,13 @@ class Penjualan extends Model
             ->select('penjualan.nofaktur AS nofaktur', 'penjualan.tglkeluar AS tglkeluar', 'penjualan.totalitem AS totalitem', 'penjualan.totalbayar AS totalbayar')
             ->get();
     }
+
+    public function detail($nofaktur)
+    {
+        return DB::table('detailpenjualan')
+            ->select('detailpenjualan.id AS id', 'detailpenjualan.nofaktur AS nofaktur', 'detailpenjualan.kodebarang AS kodebarang', 'detailpenjualan.qty AS qty', 'detailpenjualan.jumlah AS jumlah', 'barang.nama AS namabarang', 'barang.hargabeli AS hargabeli')
+            ->join('barang', 'detailpenjualan.kodebarang', '=', 'barang.kode')
+            ->where('detailpenjualan.nofaktur', '=', 'KL-20220604010520778')
+            ->get();
+    }
 }

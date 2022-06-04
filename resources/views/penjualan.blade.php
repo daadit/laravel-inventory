@@ -142,7 +142,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <a class="btn btn-mat btn-sm btn-inverse" href="{{ route('tambahpembelian') }}">Tambah Penjualan</a>
+                                    <a class="btn btn-mat btn-sm btn-inverse" href="{{ route('tambahpenjualan') }}">Tambah Penjualan</a>
                                     {{-- <a class="btn btn-mat btn-sm btn-success" href="{{ route('reportbarang') }}" target="__blank">Laporan Barang</a> --}}
                                 </div>
                                 <div class="card-block">
