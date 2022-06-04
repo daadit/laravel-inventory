@@ -17,4 +17,13 @@ class Pembelian extends Model
             ->join('supplier', 'supplier.id', '=', 'pembelian.supplier')
             ->get();
     }
+
+    public function detail($nofaktur)
+    {
+        return DB::table('detailpembelian')
+            ->select('detailpembelian.id AS id', 'detailpembelian.nofaktur AS nofaktur', 'detailpembelian.kodebarang AS kodebarang', 'detailpembelian.qty AS qty', 'detailpembelian.jumlah AS jumlah', 'barang.nama AS namabarang', 'barang.hargabeli AS hargabeli')
+            ->join('barang', 'detailpembelian.kodebarang', '=', 'barang.kode')
+            ->where('detailpembelian.nofaktur', '=', 'MS-20220604010520778')
+            ->get();
+    }
 }

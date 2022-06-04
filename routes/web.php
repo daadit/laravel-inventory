@@ -61,6 +61,8 @@ Route::get('/barang/report', [BarangController::class, 'report'])->name('reportb
 
 Route::get('/pembelian', [PembelianController::class, 'index'])->name('pembelian');
 Route::get('/pembelian/tambah', [PembelianController::class, 'add'])->name('tambahpembelian');
+// Route::get('/pembelian/table-detail', [PembelianController::class, 'tabledetail'])->name('tabledetail');
+// Route::post('/pembelian/save-detail', [PembelianController::class, 'savedetail'])->name('savedetail');
 
 Route::get('/penjualan', [PenjualanController::class, 'index'])->name('penjualan');
 

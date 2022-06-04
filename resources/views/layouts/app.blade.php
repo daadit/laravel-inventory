@@ -10,6 +10,7 @@
     <meta name="description" content="#">
     <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon icon -->
     <link rel="icon" href="{{ asset('assets') }}\images\auth\logo.png" type="image/x-icon">
     <!-- Google font-->

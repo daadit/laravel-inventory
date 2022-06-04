@@ -33,12 +33,16 @@ class PembelianController extends Controller
         $generateDate = date('YmdHis');
         $generatefaktur = 'MS-' . $generateDate . $generateRandom;
         $data = [
-            'pembelian' => $this->pembelian->list(),
+            'detail' => $this->pembelian->detail($generatefaktur),
             'supplier' => $this->supplier->list(),
             'barang' => $this->barang->list(),
             'faktur' => $generatefaktur,
             'datenow' => $datenow
         ];
         return view('tambah-pembelian', $data);
+    }
+
+    public function tabledetail(Request $request)
+    {
     }
 }
