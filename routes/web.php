@@ -69,5 +69,7 @@ Route::get('/penjualan', [PenjualanController::class, 'index'])->name('penjualan
 Route::get('/penjualan/tambah', [PenjualanController::class, 'add'])->name('tambahpenjualan');
 
 Route::get('/report-stok-barang', [StokBarangController::class, 'index'])->name('report-stok-barang');
+Route::post('/report-stok-barang/report', [StokBarangController::class, 'report'])->name('report-stok-barang-action');
+
 Route::get('/report-pembelian', [HomeController::class, 'index'])->name('report-pembelian');
 Route::get('/report-penjualan', [HomeController::class, 'index'])->name('report-penjualan');

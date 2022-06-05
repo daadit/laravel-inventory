@@ -123,27 +123,31 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-block">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-3">
-                                            <label for="">Tanggal Awal</label>
-                                            <div class="form-group">
-                                                <input type="date" name="name" class="form-control" placeholder="Name" required> <br>
+                                    <form action="{{ route('report-stok-barang-action') }}" method="post">
+                                        @method('POST')
+                                        @csrf
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-3">
+                                                <label for="">Tanggal Awal</label>
+                                                <div class="form-group">
+                                                    <input type="date" name="tglawal" class="form-control" required> <br>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <label for="">Tanggal Akhir</label>
+                                                <div class="form-group">
+                                                    <input type="date" name="tglakhir" class="form-control" required> <br>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3">
-                                            <label for="">Tanggal Akhir</label>
-                                            <div class="form-group">
-                                                <input type="date" name="name" class="form-control" placeholder="Name" required> <br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-6">
+                                                <div class="text-center">
+                                                    <button type="submit" class="btn btn-inverse btn-sm" data-dismiss="modal">Cetak Laporan</button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-6">
-                                            <div class="text-center">
-                                                <button type="button" class="btn btn-inverse btn-sm" data-dismiss="modal">Cetak</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

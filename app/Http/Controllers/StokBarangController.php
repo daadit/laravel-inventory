@@ -20,4 +20,13 @@ class StokBarangController extends Controller
         ];
         return view('stok-barang', $data);
     }
+
+    public function report()
+    {
+        $data = [
+            'stokbarang' => $this->stokbarang->list()
+        ];
+
+        return view('reports/report-stok-barang', $data);
+    }
 }
