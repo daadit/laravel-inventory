@@ -1,4 +1,3 @@
-<h1>a</h1>
 <table id="simpletable" width="100%" class="table table-striped table-bordered nowrap">
     <thead>
         <tr>

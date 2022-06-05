@@ -50,10 +50,6 @@ class PembelianController extends Controller
             'detail' =>  $this->pembelian->detail($faktur)
         ];
 
-        $json = [
-            'data' => view('tablepembelian', $data)
-        ];
-
-        echo json_encode($json);
+        echo view('ajax.pembelian', $data);
     }
 }

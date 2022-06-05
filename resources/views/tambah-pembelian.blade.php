@@ -372,18 +372,13 @@
             data: {
                 faktur: faktur
             },
-            dataType: "json",
             beforeSend: function(f) {
                 $('#coba').html(`<div class="text-center">
                 Mencari data...
                 </div>`);
             },
             success: function (response) {
-                if (response.data) {
-                    $('#coba').html(`<div class="text-center">
-                Babi data...
-                </div>`);
-                }
+                $('#coba').html(response);
             },
             error: function (xhr, ajaxOption, thrownError) {
                 alert(xhr.status + '\n' + thrownError)

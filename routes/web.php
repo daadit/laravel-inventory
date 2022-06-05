@@ -6,6 +6,7 @@ use App\Http\Controllers\JenisController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\SatuanController;
+use App\Http\Controllers\StokBarangController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -67,6 +68,6 @@ Route::post('/pembelian/save-detail', [PembelianController::class, 'savedetail']
 Route::get('/penjualan', [PenjualanController::class, 'index'])->name('penjualan');
 Route::get('/penjualan/tambah', [PenjualanController::class, 'add'])->name('tambahpenjualan');
 
-Route::get('/report-stok-barang', [HomeController::class, 'index'])->name('report-stok-barang');
+Route::get('/report-stok-barang', [StokBarangController::class, 'index'])->name('report-stok-barang');
 Route::get('/report-pembelian', [HomeController::class, 'index'])->name('report-pembelian');
 Route::get('/report-penjualan', [HomeController::class, 'index'])->name('report-penjualan');
