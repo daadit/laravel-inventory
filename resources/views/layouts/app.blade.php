@@ -28,7 +28,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bower_components') }}/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/pages/data-table/css/buttons.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('bower_components') }}/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
-
+    <!-- Required Jquery -->
+    <script type="text/javascript" src="{{ asset('bower_components') }}\jquery\js\jquery.min.js"></script>
+    
 </head>
 
 <body>
@@ -228,8 +230,6 @@
         </div>
     </form>
 
-    <!-- Required Jquery -->
-    <script type="text/javascript" src="{{ asset('bower_components') }}\jquery\js\jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('bower_components') }}\jquery-ui\js\jquery-ui.min.js"></script>
     <script type="text/javascript" src="{{ asset('bower_components') }}\popper.js\js\popper.min.js"></script>
     <script type="text/javascript" src="{{ asset('bower_components') }}\bootstrap\js\bootstrap.min.js"></script>

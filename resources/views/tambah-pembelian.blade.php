@@ -150,7 +150,7 @@
                                         <div class="col-lg-6">
                                             <label>No. Faktur</label>
                                             <div class="form-group">
-                                                <input type="text" value="{{ $faktur }}" readonly name="faktur" class="form-control" placeholder="No. Faktur" required>
+                                                <input type="text" value="{{ $faktur }}" readonly name="faktur" id="faktur" class="form-control" placeholder="No. Faktur" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -199,7 +199,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-1">
-                                            <button class="btn btn-inverse btn-sm" style="margin-top: 28px">
+                                            <button class="btn btn-inverse btn-sm" onclick="dataDetail()" style="margin-top: 28px">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                                                     <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                                                 </svg>
@@ -208,43 +208,9 @@
                                     </div>
                                     <br>
                                     <div class="dt-responsive table-responsive">
-                                        <table id="simpletable" width="100%" class="table table-striped table-bordered nowrap">
-                                            <thead>
-                                                <tr>
-                                                    {{-- <th style="text-align: center;">No</th> --}}
-                                                    <th>Kode Barang</th>
-                                                    <th>Nama Barang</th>
-                                                    <th>Harga</th>
-                                                    <th>Qty</th>
-                                                    <th>Jumlah</th>
-                                                    <th>Aksi</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($detail as $number => $data)
-                                                    <tr>
-                                                        {{-- <td width="8%">{{ ++$number }}</td> --}}
-                                                        <td>{{ $data->kodebarang }}</td>
-                                                        <td>{{ $data->namabarang }}</td>
-                                                        <td>{{ $data->hargabeli }}</td>
-                                                        <td>{{ $data->qty }}</td>
-                                                        <td>@currency($data->jumlah)</td>
-                                                        <td class="text-center">
-                                                            <button class="btn btn-inverse btn-mini" data-toggle="modal"
-                                                                data-target="#deleteModal{{ $data->kodebarang }}">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                                                                    fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                                                    <path
-                                                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                                                                    <path fill-rule="evenodd"
-                                                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-                                                                </svg>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
+                                        <div class="coba" id="coba">
+                                            <h1>A</h1>
+                                        </div>
                                     </div>
                                     <br>
                                     <br>
@@ -387,6 +353,59 @@
         $('.qty').val('1');
         $('#modalBarang').modal('hide');
     });
+</script>
+
+<script>
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    
+    function dataDetail() {
+        let faktur = $('#faktur').val();
+
+        $.ajax({
+            type: "POST",
+            url: "/pembelian/table-detail",
+            data: {
+                faktur: faktur
+            },
+            dataType: "json",
+            beforeSend: function(f) {
+                $('#coba').html(`<div class="text-center">
+                Mencari data...
+                </div>`);
+            },
+            success: function (response) {
+                if (response.data) {
+                    $('#coba').html(`<div class="text-center">
+                Babi data...
+                </div>`);
+                }
+            },
+            error: function (xhr, ajaxOption, thrownError) {
+                alert(xhr.status + '\n' + thrownError)
+            }
+        });
+    }
+
+    function simpan() {
+        $.ajax({
+            url: "/pembelian/save-detail",
+            type: "POST",
+            data: $("#form_tambah").serialize(),
+            success: function(data) {
+                dataDetail();
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        dataDetail();
+    });
+
 </script>
 
 @endsection

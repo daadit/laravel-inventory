@@ -44,5 +44,16 @@ class PembelianController extends Controller
 
     public function tabledetail(Request $request)
     {
+        $faktur = Request()->faktur;
+
+        $data = [
+            'detail' =>  $this->pembelian->detail($faktur)
+        ];
+
+        $json = [
+            'data' => view('tablepembelian', $data)
+        ];
+
+        echo json_encode($json);
     }
 }
