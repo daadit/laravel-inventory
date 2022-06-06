@@ -416,12 +416,15 @@
 
     function simpan() {
         let faktur = $('.faktur').val()
+        let idsupplier = $('.idsupplier').val()
         let kodebarang = $('.kodebarang').val()
         let hargabarang = $('.hargabarang').val()
         let qty = $('.qty').val()
         let jumlah = qty * hargabarang
         
-        if (kodebarang.length == 0) {
+        if (idsupplier.length == 0) {
+            alert('Supplier tidak boleh kosong')
+        } else if (kodebarang.length == 0) {
             alert('Kode Barang tidak boleh kosong')
         } else if (qty.length == 0) {
             alert('QTY tidak boleh kosong')
