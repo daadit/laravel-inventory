@@ -122,32 +122,67 @@
                     <div class="row"> 
                         <div class="col-lg-12">
                             <div class="card">
+                                <div class="card-header">
+                                    <div class="row justify-content-end">
+                                        <div class="col-lg-6">
+                                            @if (session('success-message'))
+                                                <div class="alert alert-success border-success">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <i class="icofont icofont-close-line-circled"></i>
+                                                    </button>
+                                                    <strong>Success!</strong> {{ session('success-message') }}
+                                                </div>
+                                            @elseif (session('failed-message'))
+                                                <div class="alert alert-warning border-warning">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <i class="icofont icofont-close-line-circled"></i>
+                                                    </button>
+                                                    <strong>Error!</strong> {{ session('failed-message') }} : {{ $errors->content->first() }}
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <a class="btn btn-mat btn-sm btn-success" href="{{ route('report-stok-barang-action') }}" target="__blank">Cetak Laporan</a>
+                                </div>
                                 <div class="card-block">
-                                    <form action="{{ route('report-stok-barang-action') }}" method="post">
-                                        @method('POST')
-                                        @csrf
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-3">
-                                                <label for="">Tanggal Awal</label>
-                                                <div class="form-group">
-                                                    <input type="date" name="tglawal" class="form-control" required> <br>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3">
-                                                <label for="">Tanggal Akhir</label>
-                                                <div class="form-group">
-                                                    <input type="date" name="tglakhir" class="form-control" required> <br>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-6">
-                                                <div class="text-center">
-                                                    <button type="submit" class="btn btn-inverse btn-sm" data-dismiss="modal">Cetak Laporan</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    <div class="dt-responsive table-responsive">
+                                        <table id="simpletable" width="100%" class="table table-striped table-bordered nowrap">
+                                            <thead>
+                                                <tr>
+                                                    {{-- <th style="text-align: center;">No</th> --}}
+                                                    <th>Kode</th>
+                                                    <th>Nama</th>
+                                                    <th>Jenis</th>
+                                                    <th>Stok</th>
+                                                    <th>Harga Beli</th>
+                                                    <th>Harga Jual</th>
+                                                    <th>Ket</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($stokbarang as $number => $data)
+                                                    <tr>
+                                                        {{-- <td width="8%">{{ ++$number }}</td> --}}
+                                                        <td>{{ $data->kode }}</td>
+                                                        <td>{{ $data->namabarang }}</td>
+                                                        <td>{{ $data->namajenis }}</td>
+                                                        <td>{{ $data->stok }} {{ $data->namasatuan }}</td>
+                                                        <td>@currency($data->hargabeli)</td>
+                                                        <td>@currency($data->hargajual)</td>
+                                                        <td class="text-center">
+                                                            @if ($data->stok == 0)
+                                                                <span class="badge badge-danger text-white">Stok Habis</span>
+                                                            @elseif ($data->stok <= 40)
+                                                                <span class="badge badge-warning text-white">Mulai Menipis</span>
+                                                            @elseif ($data->stok > 40)
+                                                                <span class="badge badge-success text-white">Tersedia</span>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
