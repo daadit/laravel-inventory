@@ -200,17 +200,25 @@
                                     <div class="coba" id="coba">
                                     </div>
                                     <br>
-                                    <br>
-                                    {{-- <div class="row justify-content-end">
+                                    <div class="row justify-content-end">
                                         <div class="col-lg-3">
+                                            <label for="">Total Item :</label>
+                                            <input type="text" readonly class="form-control totalitem"></input>
                                         </div>
-                                    </div> --}}
+                                    </div>
+                                    <div class="row justify-content-end">
+                                        <div class="col-lg-3">
+                                            <label for="">Total Bayar :</label>
+                                            <input type="text" readonly class="form-control totalbayar"></input>
+                                        </div>
+                                    </div>
+                                    <br>
                                     <div class="row justify-content-end">
                                         <div class="col-lg-3">
                                             <button type="button" onclick="window.location='{{ route('pembelian') }}'" class="btn btn-default btn-sm">
                                                 Kembali
                                             </button>
-                                            <button class="btn btn-inverse btn-sm">
+                                            <button class="btn btn-inverse btn-sm" onclick="simpanTransaksi()">
                                                 Simpan & Cetak Faktur
                                             </button>
                                         </div>
@@ -343,6 +351,8 @@
 </script>
 
 <script>
+    let totalharga = 0;
+    let qty = 0;
 
     $.ajaxSetup({
         headers: {
@@ -373,6 +383,27 @@
         });
     }
 
+    function hitungTotal() {
+        let hargabarang = $('.hargabarang').val()
+        let quantity = $('.qty').val()
+
+        let hargaxqty = hargabarang * quantity
+
+        totalharga = parseInt(totalharga) + parseInt(hargaxqty)
+        qty = parseInt(qty) + parseInt(quantity)
+
+        $('.totalitem').val(qty);
+        $('.totalbayar').val(totalharga);
+    }
+
+    function hitungTotalHapus(quantity, jumlah) {
+        totalharga = parseInt(totalharga) - parseInt(jumlah)
+        qty = parseInt(qty) - parseInt(quantity)
+
+        $('.totalitem').val(qty);
+        $('.totalbayar').val(totalharga);
+    }
+
     function simpan() {
         let faktur = $('.faktur').val()
         let kodebarang = $('.kodebarang').val()
@@ -398,6 +429,7 @@
                 },
                 success: function(data) {
                     dataDetail();
+                    hitungTotal();
                     $('.kodebarang').val('');
                     $('.hargabarang').val('');
                     $('.namabarang').val('');
@@ -408,6 +440,36 @@
                 }
             });
         }
+    }
+
+    function simpanTransaksi() {
+        let faktur = $('.faktur').val()
+        let tanggal = $('.tanggal').val()
+        let kodebarang = $('.kodebarang').val()
+        let hargabarang = $('.hargabarang').val()
+        let qty = $('.qty').val()
+        let jumlah = qty * hargabarang
+        
+        $.ajax({
+            url: "/penjualan/save-detail",
+            type: "POST",
+            data: {
+                faktur: faktur,
+                kodebarang: kodebarang,
+                qty: qty,
+                jumlah: jumlah
+            },
+            success: function(data) {
+                dataDetail();
+                $('.kodebarang').val('');
+                $('.hargabarang').val('');
+                $('.namabarang').val('');
+                $('.qty').val('');
+            },
+            error: function (xhr, ajaxOption, thrownError) {
+                alert(xhr.status + '\n' + thrownError)
+            }
+        });
     }
 
     $(document).ready(function () {
