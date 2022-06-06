@@ -6,6 +6,7 @@ use App\Http\Controllers\JenisController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\ReportPembelianController;
+use App\Http\Controllers\ReportPenjualanController;
 use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\StokBarangController;
 use App\Http\Controllers\SupplierController;
@@ -75,4 +76,5 @@ Route::post('/report-stok-barang/report', [StokBarangController::class, 'report'
 Route::get('/report-pembelian', [ReportPembelianController::class, 'index'])->name('report-pembelian');
 Route::post('/report-pembelian/report', [ReportPembelianController::class, 'report'])->name('report-pembelian-action');
 
-Route::get('/report-penjualan', [HomeController::class, 'index'])->name('report-penjualan');
+Route::get('/report-penjualan', [ReportPenjualanController::class, 'index'])->name('report-penjualan');
+Route::post('/report-penjualan/report', [ReportPenjualanController::class, 'report'])->name('report-penjualan-action');
