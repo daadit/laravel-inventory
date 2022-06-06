@@ -81,7 +81,7 @@
                 @foreach ($reportpenjualan as $number => $data)
                     <tr style="height: 20px; text-align: center;">
                         <td>{{ $data->nofaktur }}</td>
-                        <td>{{ $data->tglmasuk }}</td>
+                        <td>{{ $data->tglkeluar }}</td>
                         <td>{{ $data->totalitem }}</td>
                         <td>@currency($data->totalbayar)</td>
                     </tr>
