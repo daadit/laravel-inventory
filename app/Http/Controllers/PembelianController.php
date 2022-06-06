@@ -50,6 +50,6 @@ class PembelianController extends Controller
             'detail' =>  $this->pembelian->detail($faktur)
         ];
 
-        echo view('ajax.pembelian', $data);
+        echo view('tablepembelian', $data);
     }
 }

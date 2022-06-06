@@ -207,10 +207,7 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <div class="dt-responsive table-responsive">
-                                        <div class="coba" id="coba">
-                                            <h1>A</h1>
-                                        </div>
+                                    <div class="coba" id="coba">
                                     </div>
                                     <br>
                                     <br>
@@ -374,11 +371,10 @@
             },
             beforeSend: function(f) {
                 $('#coba').html(`<div class="text-center">
-                Mencari dataa...
+                Mencari data...
                 </div>`);
             },
             success: function (response) {
-                console.log(response)
                 $('#coba').html(response);
             },
             error: function (xhr, ajaxOption, thrownError) {
