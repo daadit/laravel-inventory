@@ -52,4 +52,15 @@ class PenjualanController extends Controller
 
         echo view('tablepenjualan', $data);
     }
+
+    public function savedetail(Request $request)
+    {
+        $data = [
+            'nofaktur' => Request()->faktur,
+            'kodebarang' => Request()->kodebarang,
+            'qty' => Request()->qty,
+            'jumlah' => Request()->jumlah,
+        ];
+        $this->penjualan->saveData($data);
+    }
 }

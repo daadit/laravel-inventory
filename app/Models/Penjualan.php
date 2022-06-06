@@ -20,9 +20,14 @@ class Penjualan extends Model
     public function detail($nofaktur)
     {
         return DB::table('detailpenjualan')
-            ->select('detailpenjualan.id AS id', 'detailpenjualan.nofaktur AS nofaktur', 'detailpenjualan.kodebarang AS kodebarang', 'detailpenjualan.qty AS qty', 'detailpenjualan.jumlah AS jumlah', 'barang.nama AS namabarang', 'barang.hargabeli AS hargabeli')
+            ->select('detailpenjualan.id AS id', 'detailpenjualan.nofaktur AS nofaktur', 'detailpenjualan.kodebarang AS kodebarang', 'detailpenjualan.qty AS qty', 'detailpenjualan.jumlah AS jumlah', 'barang.nama AS namabarang', 'barang.hargajual AS hargajual')
             ->join('barang', 'detailpenjualan.kodebarang', '=', 'barang.kode')
-            ->where('detailpenjualan.nofaktur', '=', 'KL-20220604010520778')
+            ->where('detailpenjualan.nofaktur', '=', $nofaktur)
             ->get();
+    }
+
+    public function saveData($data)
+    {
+        DB::table('detailpenjualan')->insert($data);
     }
 }

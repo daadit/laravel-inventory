@@ -17,7 +17,7 @@
                     {{-- <td width="8%">{{ ++$number }}</td> --}}
                     <td>{{ $data->kodebarang }}</td>
                     <td>{{ $data->namabarang }}</td>
-                    <td>{{ $data->hargabeli }}</td>
+                    <td>{{ $data->hargajual }}</td>
                     <td>{{ $data->qty }}</td>
                     <td>@currency($data->jumlah)</td>
                     <td class="text-center">
