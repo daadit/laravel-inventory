@@ -73,4 +73,6 @@ Route::get('/report-stok-barang', [StokBarangController::class, 'index'])->name(
 Route::post('/report-stok-barang/report', [StokBarangController::class, 'report'])->name('report-stok-barang-action');
 
 Route::get('/report-pembelian', [ReportPembelianController::class, 'index'])->name('report-pembelian');
+Route::post('/report-pembelian/report', [ReportPembelianController::class, 'report'])->name('report-pembelian-action');
+
 Route::get('/report-penjualan', [HomeController::class, 'index'])->name('report-penjualan');

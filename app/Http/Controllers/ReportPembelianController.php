@@ -17,4 +17,18 @@ class ReportPembelianController extends Controller
     {
         return view('report-pembelian');
     }
+
+    public function report()
+    {
+        $tglawal = Request()->tglawal;
+        $tglakhir = Request()->tglakhir;
+
+        $data = [
+            'reportpembelian' => $this->reportpembelian->list($tglawal, $tglakhir),
+            'tglawal' => $tglawal,
+            'tglakhir' => $tglakhir
+        ];
+
+        return view('reports/report-pembelian', $data);
+    }
 }

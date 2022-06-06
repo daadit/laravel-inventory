@@ -123,7 +123,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-block">
-                                    <form action="{{ route('report-stok-barang-action') }}" method="post">
+                                    <form action="{{ route('report-pembelian-action') }}" method="post">
                                         @method('POST')
                                         @csrf
                                         <div class="row justify-content-center">
