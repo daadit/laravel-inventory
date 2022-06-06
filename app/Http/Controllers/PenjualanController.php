@@ -41,4 +41,15 @@ class PenjualanController extends Controller
         ];
         return view('tambah-penjualan', $data);
     }
+
+    public function tabledetail(Request $request)
+    {
+        $faktur = Request()->faktur;
+
+        $data = [
+            'detail' =>  $this->penjualan->detail($faktur)
+        ];
+
+        echo view('tablepenjualan', $data);
+    }
 }

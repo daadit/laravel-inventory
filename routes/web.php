@@ -69,6 +69,8 @@ Route::post('/pembelian/save-detail', [PembelianController::class, 'savedetail']
 
 Route::get('/penjualan', [PenjualanController::class, 'index'])->name('penjualan');
 Route::get('/penjualan/tambah', [PenjualanController::class, 'add'])->name('tambahpenjualan');
+Route::post('/penjualan/table-detail', [PenjualanController::class, 'tabledetail'])->name('tabledetailpenjualan');
+Route::post('/penjualan/save-detail', [PenjualanController::class, 'savedetail'])->name('savedetailpenjualan');
 
 Route::get('/report-stok-barang', [StokBarangController::class, 'index'])->name('report-stok-barang');
 Route::get('/report-stok-barang/report', [StokBarangController::class, 'report'])->name('report-stok-barang-action');
