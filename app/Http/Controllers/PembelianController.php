@@ -52,4 +52,22 @@ class PembelianController extends Controller
 
         echo view('tablepembelian', $data);
     }
+
+    public function savedetail(Request $request)
+    {
+        $data = [
+            'nofaktur' => Request()->faktur,
+            'kodebarang' => Request()->kodebarang,
+            'qty' => Request()->qty,
+            'jumlah' => Request()->jumlah,
+        ];
+        $this->pembelian->saveData($data);
+    }
+
+    public function deletedetail(Request $request)
+    {
+        $id = Request()->id;
+
+        $this->pembelian->deleteData($id);
+    }
 }

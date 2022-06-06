@@ -23,7 +23,19 @@ class Pembelian extends Model
         return DB::table('detailpembelian')
             ->select('detailpembelian.id AS id', 'detailpembelian.nofaktur AS nofaktur', 'detailpembelian.kodebarang AS kodebarang', 'detailpembelian.qty AS qty', 'detailpembelian.jumlah AS jumlah', 'barang.nama AS namabarang', 'barang.hargabeli AS hargabeli')
             ->join('barang', 'detailpembelian.kodebarang', '=', 'barang.kode')
-            ->where('detailpembelian.nofaktur', '=', 'MS-20220604010520778')
+            ->where('detailpembelian.nofaktur', '=', $nofaktur)
             ->get();
+    }
+
+    public function saveData($data)
+    {
+        DB::table('detailpembelian')->insert($data);
+    }
+
+    public function deleteData($id)
+    {
+        DB::table('detailpembelian')
+            ->where('id', '=', $id)
+            ->delete();
     }
 }

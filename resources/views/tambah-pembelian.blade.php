@@ -150,13 +150,13 @@
                                         <div class="col-lg-6">
                                             <label>No. Faktur</label>
                                             <div class="form-group">
-                                                <input type="text" value="{{ $faktur }}" readonly name="faktur" id="faktur" class="form-control" placeholder="No. Faktur" required>
+                                                <input type="text" value="{{ $faktur }}" readonly name="faktur" id="faktur" class="form-control faktur" placeholder="No. Faktur" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <label>Tanggal Masuk</label>
                                             <div class="form-group">
-                                                <input type="date" value="{{ $datenow }}" name="tanggal" class="form-control" placeholder="Tanggal Masuk" required>
+                                                <input type="date" value="{{ $datenow }}" name="tanggal" class="form-control tanggal" placeholder="Tanggal Masuk" required>
                                             </div>
                                         </div>
                                     </div>
@@ -189,7 +189,7 @@
                                             <label>Harga</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon">Rp</span>
-                                                <input type="text" readonly name="faktur" class="form-control hargabarang" placeholder="0" required>
+                                                <input type="text" readonly name="hargabarang" class="form-control hargabarang" placeholder="0" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-2">
@@ -199,7 +199,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-1">
-                                            <button class="btn btn-inverse btn-sm" onclick="dataDetail()" style="margin-top: 28px">
+                                            <button class="btn btn-inverse btn-sm" onclick="simpan()" style="margin-top: 28px">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                                                     <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                                                 </svg>
@@ -210,11 +210,19 @@
                                     <div class="coba" id="coba">
                                     </div>
                                     <br>
-                                    <br>
-                                    {{-- <div class="row justify-content-end">
+                                    <div class="row justify-content-end">
                                         <div class="col-lg-3">
+                                            <label for="">Total Item :</label>
+                                            <input type="text" readonly class="form-control totalitem"></input>
                                         </div>
-                                    </div> --}}
+                                    </div>
+                                    <div class="row justify-content-end">
+                                        <div class="col-lg-3">
+                                            <label for="">Total Bayar :</label>
+                                            <input type="text" readonly class="form-control totalbayar"></input>
+                                        </div>
+                                    </div>
+                                    <br>
                                     <div class="row justify-content-end">
                                         <div class="col-lg-3">
                                             <button type="button" onclick="window.location='{{ route('pembelian') }}'" class="btn btn-default btn-sm">
@@ -353,6 +361,8 @@
 </script>
 
 <script>
+    let totalharga = 0;
+    let qty = 0;
 
     $.ajaxSetup({
         headers: {
@@ -383,17 +393,65 @@
         });
     }
 
-    function simpan() {
-        $.ajax({
-            url: "/pembelian/save-detail",
-            type: "POST",
-            data: $("#form_tambah").serialize(),
-            success: function(data) {
-                dataDetail();
-            }
-        });
+    function hitungTotal() {
+        let hargabarang = $('.hargabarang').val()
+        let quantity = $('.qty').val()
+
+        let hargaxqty = hargabarang * quantity
+
+        totalharga = parseInt(totalharga) + parseInt(hargaxqty)
+        qty = parseInt(qty) + parseInt(quantity)
+
+        $('.totalitem').val(qty);
+        $('.totalbayar').val(totalharga);
     }
 
+    function hitungTotalHapus(quantity, jumlah) {
+        totalharga = parseInt(totalharga) - parseInt(jumlah)
+        qty = parseInt(qty) - parseInt(quantity)
+
+        $('.totalitem').val(qty);
+        $('.totalbayar').val(totalharga);
+    }
+
+    function simpan() {
+        let faktur = $('.faktur').val()
+        let kodebarang = $('.kodebarang').val()
+        let hargabarang = $('.hargabarang').val()
+        let qty = $('.qty').val()
+        let jumlah = qty * hargabarang
+        
+        if (kodebarang.length == 0) {
+            alert('Kode Barang tidak boleh kosong')
+        } else if (qty.length == 0) {
+            alert('QTY tidak boleh kosong')
+        } else if (qty == 0) {
+            alert('QTY tidak boleh kurang dari 1')
+        } else {
+            $.ajax({
+                url: "/pembelian/save-detail",
+                type: "POST",
+                data: {
+                    faktur: faktur,
+                    kodebarang: kodebarang,
+                    qty: qty,
+                    jumlah: jumlah
+                },
+                success: function(data) {
+                    dataDetail();
+                    hitungTotal();
+                    $('.kodebarang').val('');
+                    $('.hargabarang').val('');
+                    $('.namabarang').val('');
+                    $('.qty').val('');
+                },
+                error: function (xhr, ajaxOption, thrownError) {
+                    alert(xhr.status + '\n' + thrownError)
+                }
+            });
+        }
+    }
+    
     $(document).ready(function () {
         dataDetail();
     });

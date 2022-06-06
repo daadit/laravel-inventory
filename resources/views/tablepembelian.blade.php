@@ -21,8 +21,7 @@
                     <td>{{ $data->qty }}</td>
                     <td>@currency($data->jumlah)</td>
                     <td class="text-center">
-                        <button class="btn btn-inverse btn-mini" data-toggle="modal"
-                            data-target="#deleteModal{{ $data->kodebarang }}">
+                        <button class="btn btn-inverse btn-mini" onclick="hapus({{ $data->id }}, {{ $data->qty }}, {{ $data->jumlah }})">
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                                 fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                 <path
@@ -42,4 +41,28 @@
     $('#simpletable').DataTable({
         responsive: true
     });
+</script>
+
+
+<script>
+    function hapus(id, quantity, jumlah) {
+        $.ajax({
+            url: "/pembelian/delete-detail",
+            type: "POST",
+            data: {
+                id: id
+            },
+            success: function(data) {
+                dataDetail();
+                hitungTotalHapus(quantity, jumlah);
+                $('.kodebarang').val('');
+                $('.hargabarang').val('');
+                $('.namabarang').val('');
+                $('.qty').val('');
+            },
+            error: function (xhr, ajaxOption, thrownError) {
+                alert(xhr.status + '\n' + thrownError)
+            }
+        });
+    }
 </script>
