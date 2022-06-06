@@ -374,10 +374,11 @@
             },
             beforeSend: function(f) {
                 $('#coba').html(`<div class="text-center">
-                Mencari data...
+                Mencari dataa...
                 </div>`);
             },
             success: function (response) {
+                console.log(response)
                 $('#coba').html(response);
             },
             error: function (xhr, ajaxOption, thrownError) {

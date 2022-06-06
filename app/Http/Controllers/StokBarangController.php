@@ -23,8 +23,13 @@ class StokBarangController extends Controller
 
     public function report()
     {
+        $tglawal = Request()->tglawal;
+        $tglakhir = Request()->tglakhir;
+
         $data = [
-            'stokbarang' => $this->stokbarang->list()
+            'stokbarang' => $this->stokbarang->list($tglawal, $tglakhir),
+            'tglawal' => $tglawal,
+            'tglakhir' => $tglakhir
         ];
 
         return view('reports/report-stok-barang', $data);
