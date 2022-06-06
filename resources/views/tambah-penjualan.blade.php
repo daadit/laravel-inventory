@@ -150,13 +150,13 @@
                                         <div class="col-lg-6">
                                             <label>No. Faktur</label>
                                             <div class="form-group">
-                                                <input type="text" value="{{ $faktur }}" readonly name="faktur" class="form-control" placeholder="No. Faktur" required>
+                                                <input type="text" value="{{ $faktur }}" readonly name="faktur" class="form-control faktur" placeholder="No. Faktur" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <label>Tanggal Keluar</label>
+                                            <label>Tanggal</label>
                                             <div class="form-group">
-                                                <input type="date" value="{{ $datenow }}" name="tanggal" class="form-control" placeholder="Tanggal Masuk" required>
+                                                <input type="date" value="{{ $datenow }}" name="tanggal" class="form-control tanggal" placeholder="Tanggal Masuk" required>
                                             </div>
                                         </div>
                                     </div>
@@ -351,7 +351,7 @@
     });
     
     function dataDetail() {
-        let faktur = $('#faktur').val();
+        let faktur = $('.faktur').val();
 
         $.ajax({
             type: "POST",
@@ -398,6 +398,10 @@
                 },
                 success: function(data) {
                     dataDetail();
+                    $('.kodebarang').val('');
+                    $('.hargabarang').val('');
+                    $('.namabarang').val('');
+                    $('.qty').val('');
                 },
                 error: function (xhr, ajaxOption, thrownError) {
                     alert(xhr.status + '\n' + thrownError)

@@ -30,4 +30,11 @@ class Penjualan extends Model
     {
         DB::table('detailpenjualan')->insert($data);
     }
+
+    public function deleteData($id)
+    {
+        DB::table('detailpenjualan')
+            ->where('id', '=', $id)
+            ->delete();
+    }
 }

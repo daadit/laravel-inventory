@@ -63,4 +63,11 @@ class PenjualanController extends Controller
         ];
         $this->penjualan->saveData($data);
     }
+
+    public function deletedetail(Request $request)
+    {
+        $id = Request()->id;
+
+        $this->penjualan->deleteData($id);
+    }
 }

@@ -66,11 +66,13 @@ Route::get('/pembelian', [PembelianController::class, 'index'])->name('pembelian
 Route::get('/pembelian/tambah', [PembelianController::class, 'add'])->name('tambahpembelian');
 Route::post('/pembelian/table-detail', [PembelianController::class, 'tabledetail'])->name('tabledetail');
 Route::post('/pembelian/save-detail', [PembelianController::class, 'savedetail'])->name('savedetail');
+Route::post('/pembelian/delete-detail', [PembelianController::class, 'deletedetail'])->name('deletedetail');
 
 Route::get('/penjualan', [PenjualanController::class, 'index'])->name('penjualan');
 Route::get('/penjualan/tambah', [PenjualanController::class, 'add'])->name('tambahpenjualan');
 Route::post('/penjualan/table-detail', [PenjualanController::class, 'tabledetail'])->name('tabledetailpenjualan');
 Route::post('/penjualan/save-detail', [PenjualanController::class, 'savedetail'])->name('savedetailpenjualan');
+Route::post('/penjualan/delete-detail', [PenjualanController::class, 'deletedetail'])->name('deletedetailpenjualan');
 
 Route::get('/report-stok-barang', [StokBarangController::class, 'index'])->name('report-stok-barang');
 Route::get('/report-stok-barang/report', [StokBarangController::class, 'report'])->name('report-stok-barang-action');
