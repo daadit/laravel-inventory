@@ -43,7 +43,8 @@
                 </li>
             </ul>
         </li>
-    @elseif (Auth::user()->role == 2)
+    @endif
+    @if (Auth::user()->role == 2)
         <li class="pcoded-hasmenu">
             <a href="javascript:void(0)">
                 <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
@@ -62,7 +63,8 @@
                 </li>
             </ul>
         </li>
-    @elseif (Auth::user()->role == 1 || Auth::user()->role == 0)
+    @endif
+    @if (Auth::user()->role == 1 || Auth::user()->role == 0)
         <li class="pcoded-hasmenu">
             <a href="javascript:void(0)">
                 <span class="pcoded-micon"><i class="feather icon-file-minus"></i></span>
