@@ -21,7 +21,7 @@
                     <td>{{ $data->qty }}</td>
                     <td>@currency($data->jumlah)</td>
                     <td class="text-center">
-                        <button class="btn btn-inverse btn-mini" onclick="hapus({{ $data->id }}, {{ $data->qty }}, {{ $data->jumlah }})">
+                        <button class="btn btn-inverse btn-mini" onclick="hapus({{ $data->id }}, {{ $data->qty }}, {{ $data->jumlah }}, {{ $data->stok }})">
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                                 fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                 <path
@@ -45,12 +45,14 @@
 
 
 <script>
-    function hapus(id, quantity, jumlah) {
+    function hapus(id, quantity, jumlah, stok) {
         $.ajax({
             url: "/pembelian/delete-detail",
             type: "POST",
             data: {
-                id: id
+                id: id,
+                stok: stok,
+                quantity: quantity
             },
             success: function(data) {
                 dataDetail();

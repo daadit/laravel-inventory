@@ -62,6 +62,13 @@ class PembelianController extends Controller
             'jumlah' => Request()->jumlah,
         ];
         $this->pembelian->saveData($data);
+
+        $kodebarang = Request()->kodebarang;
+
+        $datadua = [
+            'stok' => Request()->stok + Request()->qty,
+        ];
+        $this->barang->updateData($kodebarang, $datadua);
     }
 
     public function deletedetail(Request $request)
@@ -69,6 +76,13 @@ class PembelianController extends Controller
         $id = Request()->id;
 
         $this->pembelian->deleteData($id);
+
+        $kodebarang = Request()->kodebarang;
+
+        $datadua = [
+            'stok' => Request()->stok - Request()->quantity,
+        ];
+        $this->barang->updateData($kodebarang, $datadua);
     }
 
     public function saveTransaction(Request $request)

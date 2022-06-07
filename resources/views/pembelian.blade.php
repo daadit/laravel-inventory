@@ -169,6 +169,13 @@
                                                         <td>{{ $data->totalitem }}</td>
                                                         <td>@currency($data->totalbayar)</td>
                                                         <td class="text-center">
+                                                            {{-- <button class="btn btn-inverse btn-mini" data-toggle="modal"
+                                                                data-target="#detailModal{{ $data->nofaktur }}">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                                                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                                                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                                                                </svg>
+                                                            </button> --}}
                                                             <a class="btn btn-success btn-mini" target="__blank" href="/pembelian/faktur/{{ $data->nofaktur }}">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
                                                                     <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
@@ -190,5 +197,38 @@
         </div>
     </div>
 </div>
+
+{{-- @foreach ($pembelian as $data)
+    <div class="modal made" tabindex="-1" id="detailModal{{ $data->nofaktur }}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Detail Transaction</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-5">
+                            <h6>No. Faktur</h6> <br>
+                            <h6>Tanggal</h6> <br>
+                            <h6>Supplier</h6> <br>
+                        </div>
+                        <div class="col-7">
+                            <h6 class="font-weight-bold">{{ $data->nofaktur }}</h6> <br>
+                            <h6 class="font-weight-bold">{{ $data->tglmasuk }}</h6> <br>
+                            <h6 class="font-weight-bold">{{ $data->namasupplier }}</h6> <br>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+@endforeach --}}
 
 @endsection
