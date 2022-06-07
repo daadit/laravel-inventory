@@ -99,6 +99,13 @@
                         <td>@currency($data->jumlah)</td>
                     </tr>
                 @endforeach
+                @foreach ($pembelian as $number => $data)
+                    <tr style="height: 20px; text-align: center;">
+                        <td colspan="3">Total</td>
+                        <td>{{ $data->totalitem }}</td>
+                        <td>@currency($data->totalbayar)</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </center>
