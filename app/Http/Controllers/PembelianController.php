@@ -70,4 +70,26 @@ class PembelianController extends Controller
 
         $this->pembelian->deleteData($id);
     }
+
+    public function saveTransaction(Request $request)
+    {
+        $data = [
+            'nofaktur' => Request()->faktur,
+            'tglmasuk' => Request()->tanggal,
+            'supplier' => Request()->idsupplier,
+            'totalitem' => Request()->totalitem,
+            'totalbayar' => Request()->totalbayar,
+        ];
+        $this->pembelian->saveDataTransaction($data);
+    }
+
+    public function faktur($id)
+    {
+        $data = [
+            'pembelian' => $this->pembelian->fakturpembelian($id),
+            'detailpembelian' => $this->pembelian->detail($id),
+        ];
+
+        return view('reports/faktur-pembelian', $data);
+    }
 }

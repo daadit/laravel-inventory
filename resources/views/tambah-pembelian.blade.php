@@ -228,7 +228,7 @@
                                             <button type="button" onclick="window.location='{{ route('pembelian') }}'" class="btn btn-default btn-sm">
                                                 Kembali
                                             </button>
-                                            <button class="btn btn-inverse btn-sm">
+                                            <button class="btn btn-inverse btn-sm" onclick="simpanTransaksi()">
                                                 Simpan & Cetak Faktur
                                             </button>
                                         </div>
@@ -454,7 +454,39 @@
             });
         }
     }
-    
+
+    function simpanTransaksi() {
+        let faktur = $('.faktur').val()
+        let tanggal = $('.tanggal').val()
+        let idsupplier = $('.idsupplier').val()
+        let totalitem = $('.totalitem').val()
+        let totalbayar = $('.totalbayar').val()
+        
+        $.ajax({
+            url: "/pembelian/save-transaction",
+            type: "POST",
+            data: {
+                faktur: faktur,
+                tanggal: tanggal,
+                idsupplier: idsupplier,
+                totalitem: totalitem,
+                totalbayar: totalbayar,
+            },
+            success: function(data) {
+                cetakFaktur(faktur);
+                window.location = "/pembelian";
+            },
+            error: function (xhr, ajaxOption, thrownError) {
+                alert(xhr.status + '\n' + thrownError)
+            }
+        });
+    }
+
+    function cetakFaktur(faktur) {
+        let nofaktur = faktur;
+        window.open("/pembelian/faktur/" + nofaktur, "_blank");
+    }
+
     $(document).ready(function () {
         dataDetail();
     });
