@@ -62,6 +62,13 @@ class PenjualanController extends Controller
             'jumlah' => Request()->jumlah,
         ];
         $this->penjualan->saveData($data);
+
+        $kodebarang = Request()->kodebarang;
+
+        $datadua = [
+            'stok' => Request()->stok - Request()->qty,
+        ];
+        $this->barang->updateData($kodebarang, $datadua);
     }
 
     public function deletedetail(Request $request)
