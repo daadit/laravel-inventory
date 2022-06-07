@@ -445,31 +445,31 @@
     function simpanTransaksi() {
         let faktur = $('.faktur').val()
         let tanggal = $('.tanggal').val()
-        let kodebarang = $('.kodebarang').val()
-        let hargabarang = $('.hargabarang').val()
-        let qty = $('.qty').val()
-        let jumlah = qty * hargabarang
+        let totalitem = $('.totalitem').val()
+        let totalbayar = $('.totalbayar').val()
         
         $.ajax({
-            url: "/penjualan/save-detail",
+            url: "/penjualan/save-transaction",
             type: "POST",
             data: {
                 faktur: faktur,
-                kodebarang: kodebarang,
-                qty: qty,
-                jumlah: jumlah
+                tanggal: tanggal,
+                totalitem: totalitem,
+                totalbayar: totalbayar,
             },
             success: function(data) {
-                dataDetail();
-                $('.kodebarang').val('');
-                $('.hargabarang').val('');
-                $('.namabarang').val('');
-                $('.qty').val('');
+                cetakFaktur(faktur);
+                window.location = "/penjualan";
             },
             error: function (xhr, ajaxOption, thrownError) {
                 alert(xhr.status + '\n' + thrownError)
             }
         });
+    }
+
+    function cetakFaktur(faktur) {
+        let nofaktur = faktur;
+        window.open("/penjualan/faktur/" + nofaktur, "_blank");
     }
 
     $(document).ready(function () {

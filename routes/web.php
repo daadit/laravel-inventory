@@ -76,6 +76,7 @@ Route::post('/penjualan/table-detail', [PenjualanController::class, 'tabledetail
 Route::post('/penjualan/save-detail', [PenjualanController::class, 'savedetail'])->name('savedetailpenjualan');
 Route::post('/penjualan/delete-detail', [PenjualanController::class, 'deletedetail'])->name('deletedetailpenjualan');
 Route::post('/penjualan/save-transaction', [PenjualanController::class, 'savetransaction'])->name('savetransaction');
+Route::get('/penjualan/faktur/{id}', [PenjualanController::class, 'faktur'])->name('fakturpenjualan');
 
 Route::get('/report-stok-barang', [StokBarangController::class, 'index'])->name('report-stok-barang');
 Route::get('/report-stok-barang/report', [StokBarangController::class, 'report'])->name('report-stok-barang-action');

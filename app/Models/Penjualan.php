@@ -17,6 +17,14 @@ class Penjualan extends Model
             ->get();
     }
 
+    public function fakturpenjualan($nofaktur)
+    {
+        return DB::table('penjualan')
+            ->select('penjualan.nofaktur AS nofaktur', 'penjualan.tglkeluar AS tglkeluar', 'penjualan.totalitem AS totalitem', 'penjualan.totalbayar AS totalbayar')
+            ->where('penjualan.nofaktur', '=', $nofaktur)
+            ->get();
+    }
+
     public function detail($nofaktur)
     {
         return DB::table('detailpenjualan')
@@ -36,5 +44,10 @@ class Penjualan extends Model
         DB::table('detailpenjualan')
             ->where('id', '=', $id)
             ->delete();
+    }
+
+    public function saveDataTransaction($data)
+    {
+        DB::table('penjualan')->insert($data);
     }
 }

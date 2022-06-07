@@ -70,4 +70,25 @@ class PenjualanController extends Controller
 
         $this->penjualan->deleteData($id);
     }
+
+    public function saveTransaction(Request $request)
+    {
+        $data = [
+            'nofaktur' => Request()->faktur,
+            'tglkeluar' => Request()->tanggal,
+            'totalitem' => Request()->totalitem,
+            'totalbayar' => Request()->totalbayar,
+        ];
+        $this->penjualan->saveDataTransaction($data);
+    }
+
+    public function faktur($id)
+    {
+        $data = [
+            'penjualan' => $this->penjualan->fakturpenjualan($id),
+            'detailpenjualan' => $this->penjualan->detail($id),
+        ];
+
+        return view('reports/faktur-penjualan', $data);
+    }
 }
