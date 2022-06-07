@@ -102,7 +102,7 @@
                                 <div class="card-block">
                                     <div class="row align-items-end">
                                         <div class="col-8">
-                                            <h4 class="text-white">$30200</h4>
+                                            <h4 class="text-white">{{ $supplier }}</h4>
                                             <h6 class="text-white m-b-0">Supplier</h6>
                                         </div>
                                         <div class="col-4 text-right">
@@ -120,7 +120,7 @@
                                 <div class="card-block">
                                     <div class="row align-items-end">
                                         <div class="col-8">
-                                            <h4 class="text-white">290+</h4>
+                                            <h4 class="text-white">{{ $barang }}</h4>
                                             <h6 class="text-white m-b-0">Barang</h6>
                                         </div>
                                         <div class="col-4 text-right">
@@ -138,7 +138,7 @@
                                 <div class="card-block">
                                     <div class="row align-items-end">
                                         <div class="col-8">
-                                            <h4 class="text-white">145</h4>
+                                            <h4 class="text-white">{{ $penjualan }}</h4>
                                             <h6 class="text-white m-b-0">Penjualan</h6>
                                         </div>
                                         <div class="col-4 text-right">
@@ -156,7 +156,7 @@
                                 <div class="card-block">
                                     <div class="row align-items-end">
                                         <div class="col-8">
-                                            <h4 class="text-white">500</h4>
+                                            <h4 class="text-white">{{ $pembelian }}</h4> 
                                             <h6 class="text-white m-b-0">Pembelian</h6>
                                         </div>
                                         <div class="col-4 text-right">
