@@ -9,80 +9,84 @@
             <span class="pcoded-mtext">Dashboard</span>
         </a>
     </li>
-    <li class="pcoded-hasmenu">
-        <a href="javascript:void(0)">
-            <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
-            <span class="pcoded-mtext">Master</span>
-        </a>
-        <ul class="pcoded-submenu">
-            <li class=" ">
-                <a href="{{ route('user') }}">
-                    <span class="pcoded-mtext">User</span>
-                </a>
-            </li>
-            <li class=" ">
-                <a href="{{ route('jenis') }}">
-                    <span class="pcoded-mtext">Jenis Barang</span>
-                </a>
-            </li>
-            <li class=" ">
-                <a href="{{ route('satuan') }}">
-                    <span class="pcoded-mtext">Satuan Barang</span>
-                </a>
-            </li>
-            <li class=" ">
-                <a href="{{ route('supplier') }}">
-                    <span class="pcoded-mtext">Supplier</span>
-                </a>
-            </li>
-            <li class=" ">
-                <a href="{{ route('barang') }}">
-                    <span class="pcoded-mtext">Barang</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="pcoded-hasmenu">
-        <a href="javascript:void(0)">
-            <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
-            <span class="pcoded-mtext">Transaksi</span>
-        </a>
-        <ul class="pcoded-submenu">
-            <li class=" ">
-                <a href="{{ route('pembelian') }}">
-                    <span class="pcoded-mtext">Pembelian</span>
-                </a>
-            </li>
-            <li class=" ">
-                <a href="{{ route('penjualan') }}">
-                    <span class="pcoded-mtext">Penjualan</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="pcoded-hasmenu">
-        <a href="javascript:void(0)">
-            <span class="pcoded-micon"><i class="feather icon-file-minus"></i></span>
-            <span class="pcoded-mtext">Laporan</span>
-        </a>
-        <ul class="pcoded-submenu">
-            <li class=" ">
-                <a href="{{ route('report-stok-barang') }}">
-                    <span class="pcoded-mtext">Stok Barang</span>
-                </a>
-            </li>
-            <li class=" ">
-                <a href="{{ route('report-pembelian') }}">
-                    <span class="pcoded-mtext">Pembelian</span>
-                </a>
-            </li>
-            <li class=" ">
-                <a href="{{ route('report-penjualan') }}">
-                    <span class="pcoded-mtext">Penjualan</span>
-                </a>
-            </li>
-        </ul>
-    </li>
+    @if (Auth::user()->role == 0)
+        <li class="pcoded-hasmenu">
+            <a href="javascript:void(0)">
+                <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
+                <span class="pcoded-mtext">Master</span>
+            </a>
+            <ul class="pcoded-submenu">
+                <li class=" ">
+                    <a href="{{ route('user') }}">
+                        <span class="pcoded-mtext">User</span>
+                    </a>
+                </li>
+                <li class=" ">
+                    <a href="{{ route('jenis') }}">
+                        <span class="pcoded-mtext">Jenis Barang</span>
+                    </a>
+                </li>
+                <li class=" ">
+                    <a href="{{ route('satuan') }}">
+                        <span class="pcoded-mtext">Satuan Barang</span>
+                    </a>
+                </li>
+                <li class=" ">
+                    <a href="{{ route('supplier') }}">
+                        <span class="pcoded-mtext">Supplier</span>
+                    </a>
+                </li>
+                <li class=" ">
+                    <a href="{{ route('barang') }}">
+                        <span class="pcoded-mtext">Barang</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    @elseif (Auth::user()->role == 2)
+        <li class="pcoded-hasmenu">
+            <a href="javascript:void(0)">
+                <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
+                <span class="pcoded-mtext">Transaksi</span>
+            </a>
+            <ul class="pcoded-submenu">
+                <li class=" ">
+                    <a href="{{ route('pembelian') }}">
+                        <span class="pcoded-mtext">Pembelian</span>
+                    </a>
+                </li>
+                <li class=" ">
+                    <a href="{{ route('penjualan') }}">
+                        <span class="pcoded-mtext">Penjualan</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    @elseif (Auth::user()->role == 1 || Auth::user()->role == 0)
+        <li class="pcoded-hasmenu">
+            <a href="javascript:void(0)">
+                <span class="pcoded-micon"><i class="feather icon-file-minus"></i></span>
+                <span class="pcoded-mtext">Laporan</span>
+            </a>
+            <ul class="pcoded-submenu">
+                <li class=" ">
+                    <a href="{{ route('report-stok-barang') }}">
+                        <span class="pcoded-mtext">Stok Barang</span>
+                    </a>
+                </li>
+                <li class=" ">
+                    <a href="{{ route('report-pembelian') }}">
+                        <span class="pcoded-mtext">Pembelian</span>
+                    </a>
+                </li>
+                <li class=" ">
+                    <a href="{{ route('report-penjualan') }}">
+                        <span class="pcoded-mtext">Penjualan</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    @endif
 </ul>
 
 @endsection
@@ -96,6 +100,13 @@
 
                 <div class="page-body">
                     <div class="row">
+                        <div class="col-xl-12">
+                            <div class="alert border-success">
+                                <div class="text-center">
+                                    <strong>Selamat Datang</strong> di Toko Obat SIBOLGA SIMARPAUNG
+                                </div>
+                            </div>
+                        </div>
                         <!-- task, page, download counter  start -->
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-c-yellow update-card">
