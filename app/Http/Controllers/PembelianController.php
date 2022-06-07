@@ -76,13 +76,6 @@ class PembelianController extends Controller
         $id = Request()->id;
 
         $this->pembelian->deleteData($id);
-
-        $kode = Request()->kode;
-
-        $datadua = [
-            'stok' => Request()->stok - Request()->qty,
-        ];
-        $this->barang->updateData($kode, $datadua);
     }
 
     public function saveTransaction(Request $request)
