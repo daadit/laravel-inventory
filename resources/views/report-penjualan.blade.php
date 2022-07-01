@@ -105,7 +105,7 @@
                             <div class="page-header-title">
                                 <div class="d-inline">
                                     <h4>Laporan Penjualan</h4>
-                                    <span>This page is for managing laporan penjualan.</span>
+                                    <span>This page is for managing laporan penjualan</span>
                                 </div>
                             </div>
                         </div>
